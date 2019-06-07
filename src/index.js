@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./style/main.scss";
-import TestComponent from "./components/TestComponent";
+import TestComponent from "./components/TestComponent/TestComponent";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<TestComponent />, document.getElementById("root"));
