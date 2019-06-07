@@ -23,16 +23,17 @@ nav {
   padding-top: $padding__smaller;
   padding-bottom: $padding__smaller;
   img {
-    margin-right: $margin__medium;
     border: $border;
     border-radius: 50%;
-    width: $margin__big;
+    width: ($margin__big - 0.6rem);
   }
   img:last-child {
     margin-right: 0;
-    margin-left: $margin__medium;
     border: none;
     border-radius: unset;
     width: $margin__small;
+  }
+  span {
+    margin: 0 $margin__small;
   }
 }

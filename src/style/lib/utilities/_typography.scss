@@ -1,0 +1,30 @@
+html {
+  font-size: $root__font-size;
+  color: $black;
+}
+
+h1 {
+  font-size: $font-size__l;
+  margin: $margin__big 0;
+}
+
+h4 {
+  font-weight: normal;
+  font-size: $font-size__m;
+  margin-top: $margin__big;
+  color: $gray;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  h4 {
+    margin-top: 0;
+    margin-left: $margin__smaller + $border-width;
+    margin-bottom: $margin__smaller;
+  }
+}

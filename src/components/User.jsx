@@ -14,7 +14,7 @@ class User extends Component {
     return (
       <div className="user border">
         <img src={userIcon} alt="user-icon" />
-        {this.state.userName}
+        <span>{this.state.userName}</span>
         <img src={bottomArrow} alt="bottom-arrow" />
       </div>
     );

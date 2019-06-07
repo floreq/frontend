@@ -1,7 +1,3 @@
-html {
-  font-size: $root__font-size;
-}
-
 body {
   font-family: $font-family__base;
   margin: $margin__big;
@@ -17,6 +13,7 @@ body {
 hr {
   display: block;
   margin-top: $margin__big;
+  margin-bottom: 0;
   padding: 0;
   border: 0;
   border-top: $border;
