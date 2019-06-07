@@ -4,6 +4,21 @@ html {
 
 body {
   font-family: $font-family__base;
-  margin: 0;
+  margin: $margin__big;
   padding: 0;
+}
+
+.border {
+  padding: $padding__small;
+  border: $border;
+  border-radius: $border-radius;
+}
+
+hr {
+  display: block;
+  margin-top: $margin__big;
+  padding: 0;
+  border: 0;
+  border-top: $border;
+  height: $border-width;
 }

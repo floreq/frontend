@@ -1,2 +1,17 @@
 $font-family__base: "PT Sans";
 $root__font-size: 18px;
+
+// Margins
+$margin__biger: 3.6rem;
+$margin__big: 2.6rem; // +/- 48px
+$margin__medium: 1.5rem;
+$margin__small: 1rem; // 18px
+$margin__smaller: ($margin__small / 2);
+
+$padding__small: $margin__small;
+$padding__smaller: ($margin__small / 2);
+
+// Border
+$border-width: 0.1rem;
+$border: $border-width solid $light-gray;
+$border-radius: 0.5rem;
