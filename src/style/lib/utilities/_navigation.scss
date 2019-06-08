@@ -25,7 +25,7 @@ nav {
   img {
     border: $border;
     border-radius: 50%;
-    width: ($margin__big - 0.6rem);
+    width: ($margin__big + 0.4);
   }
   img:last-child {
     margin-right: 0;

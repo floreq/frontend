@@ -10,12 +10,19 @@ body {
   border-radius: $border-radius;
 }
 
-hr {
+hr,
+.main-hr {
   display: block;
+  margin: 0;
   margin-top: $margin__big;
   margin-bottom: 0;
   padding: 0;
   border: 0;
   border-top: $border;
   height: $border-width;
+}
+
+.main-hr {
+  margin-left: -$margin__big;
+  margin-right: -$margin__big;
 }

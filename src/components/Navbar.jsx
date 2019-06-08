@@ -18,7 +18,7 @@ function Navbar() {
           <User />
         </div>
       </nav>
-      <hr />
+      <hr className="main-hr" />
     </React.Fragment>
   );
 }

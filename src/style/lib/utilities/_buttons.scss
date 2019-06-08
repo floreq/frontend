@@ -14,9 +14,18 @@ select {
   background: unset;
 }
 
+input {
+  width: 4.6rem;
+}
+
 select {
+  width: 6.1rem;
+  padding-right: (($margin__smaller * 2) + $size__select-arrow);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; // remove default arrow
   background: url("./lib/icons/bottom-arrow.svg") no-repeat 96% 0; // add custom arrow
+  background-size: $size__select-arrow;
+  background-position-x: 83px;
+  background-position-y: 14px;
 }
