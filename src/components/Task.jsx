@@ -13,17 +13,7 @@ class Task extends Component {
         quantity: 0,
         type: ""
       },
-      orders: [
-        {
-          id: 1,
-          orderDate: "",
-          task: "",
-          comment: "",
-          expense: 0,
-          quantity: 0,
-          type: ""
-        }
-      ]
+      tasks: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -59,7 +49,15 @@ class Task extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.enteredTask);
+    this.setState(prevState => {
+      const newTaskEntry = prevState.enteredTask;
+      let tasksList = prevState.tasks;
+      tasksList.push(newTaskEntry);
+      return {
+        tasks: tasksList
+      };
+    });
+    console.log(this.state.tasks);
   }
 
   render() {
@@ -79,17 +77,3 @@ class Task extends Component {
 }
 
 export default Task;
-
-// handleChange(event) {
-//   const { name, value } = event.target;
-//   this.setState(prevState => {
-//     const newOrderEntry = prevState.orders;
-//     let element = {};
-//     element[name] = value;
-//     newOrderEntry.push(element);
-//     return {
-//       order: newOrderEntry
-//     };
-//   });
-//   console.log(this.state.orders);
-// }
