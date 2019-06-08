@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Order from "./Order";
+import Task from "./Task";
 import Stock from "./Stock";
 
 class Workplace extends Component {
@@ -27,7 +27,7 @@ class Workplace extends Component {
   render() {
     return (
       <div>
-        <Order workplaceName={this.state.workplaceName} />
+        <Task workplaceName={this.state.workplaceName} />
         <div className="two-columns">
           <Stock stock={this.state.stock} />
         </div>
