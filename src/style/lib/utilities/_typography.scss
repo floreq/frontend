@@ -4,11 +4,12 @@ html {
 }
 
 h1 {
-  font-size: $font-size__l;
+  font-size: $font-size__xl;
   margin: 0;
 }
 
 h3 {
+  font-size: $font-size__l;
   margin: 0;
 }
 
@@ -47,4 +48,8 @@ label {
 
 .non-bold {
   font-weight: normal;
+}
+
+footer {
+  color: $color__footer;
 }

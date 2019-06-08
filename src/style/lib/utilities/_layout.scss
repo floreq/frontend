@@ -11,7 +11,8 @@ body {
 }
 
 hr,
-.main-hr {
+.nav-hr,
+.footer-hr {
   display: block;
   margin: 0;
   padding: 0;
@@ -20,9 +21,14 @@ hr,
   height: $border-width;
 }
 
-.main-hr {
+.nav-hr,
+.footer-hr {
   margin-left: -$margin__big;
   margin-right: -$margin__big;
+}
+
+.footer-hr {
+  margin-top: $margin__big;
 }
 
 .stock {
@@ -31,6 +37,10 @@ hr,
   align-items: center;
   margin-right: $margin__big;
   margin-bottom: $margin__big;
+}
+
+.stock:last-child {
+  margin-right: 0;
 }
 
 .two-columns {

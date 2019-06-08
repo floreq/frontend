@@ -2,5 +2,8 @@ $font-family__base: "PT Sans";
 $root__font-size: 18px;
 
 // Size
-$font-size__l: ceil(1.444 * $root__font-size); // 26px
+$font-size__xl: ceil(1.444 * $root__font-size); // 26px
+$font-size__l: ceil(1.111 * $root__font-size); // 20px
 $font-size__m: ceil(0.888 * $root__font-size); // 16px
+
+$color__footer: $light-gray;

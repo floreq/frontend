@@ -1,7 +1,6 @@
 import React from "react";
 
 function Stock(props) {
-  console.log(props);
   const elements = props.stock.map(item => {
     return (
       <div key={item.id} className="border stock">

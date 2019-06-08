@@ -10,22 +10,22 @@ select {
   padding: $margin__smaller;
   font-size: $font-size__m;
   border: $border;
-  border-radius: $border-radius;
+  border-radius: $border-radius__inputs;
   background: unset;
 }
 
 input {
-  width: 4.6rem;
+  width: $width__input;
 }
 
 select {
-  width: 6.1rem;
+  width: $width__select;
   padding-right: (($margin__smaller * 2) + $size__select-arrow);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; // remove default arrow
   background: url("./lib/icons/bottom-arrow.svg") no-repeat 96% 0; // add custom arrow
   background-size: $size__select-arrow;
-  background-position-x: 83px;
-  background-position-y: 14px;
+  background-position-x: $select-arrow-position-x;
+  background-position-y: $select-arrow-position-y;
 }
