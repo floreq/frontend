@@ -2,6 +2,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: $margin__big;
   div {
     display: flex;
     align-items: center;
@@ -20,8 +21,7 @@ nav {
 .user {
   display: flex;
   align-items: center;
-  padding-top: $padding__smaller;
-  padding-bottom: $padding__smaller;
+  padding: $padding__smaller $padding__small;
   img {
     border: $border;
     border-radius: 50%;

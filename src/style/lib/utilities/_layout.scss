@@ -5,7 +5,7 @@ body {
 }
 
 .border {
-  padding: $padding__small;
+  padding: $padding__big;
   border: $border;
   border-radius: $border-radius;
 }
@@ -14,8 +14,6 @@ hr,
 .main-hr {
   display: block;
   margin: 0;
-  margin-top: $margin__big;
-  margin-bottom: 0;
   padding: 0;
   border: 0;
   border-top: $border;
@@ -25,4 +23,17 @@ hr,
 .main-hr {
   margin-left: -$margin__big;
   margin-right: -$margin__big;
+}
+
+.stock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: $margin__big;
+  margin-bottom: $margin__big;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: auto auto;
 }
