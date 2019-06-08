@@ -1,7 +1,8 @@
 body {
   font-family: $font-family__base;
-  margin: $margin__big;
-  padding: 0;
+  margin: auto;
+  padding: $padding__big;
+  max-width: 1600px; // Tymczasowo
 }
 
 .border {
