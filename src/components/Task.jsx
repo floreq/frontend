@@ -52,17 +52,18 @@ class Task extends Component {
     this.setState(prevState => {
       const newTaskEntry = prevState.enteredTask;
       let tasksList = prevState.tasks;
-      tasksList.push(newTaskEntry);
+      tasksList.unshift(newTaskEntry);
       return {
         tasks: tasksList
       };
     });
-    console.log(this.state.tasks);
+
+    this.props.handleTransfer(this.state.tasks);
   }
 
   render() {
     return (
-      <div>
+      <div className="component">
         <h4>Zlecenie</h4>
         <h1>{this.props.workplaceName}</h1>
         <Form

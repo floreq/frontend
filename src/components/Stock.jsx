@@ -5,7 +5,7 @@ function Stock(props) {
     return (
       <div key={item.id} className="border stock">
         <div>
-          <h4>{item.shortname}</h4>
+          <h4 className="orange">{item.shortname}</h4>
           <h3>{item.name}</h3>
         </div>
         <h3 className="non-bold">{`${item.value} kg`}</h3>
@@ -13,7 +13,7 @@ function Stock(props) {
     );
   });
   return (
-    <div>
+    <div className="component">
       <h4>Stan magazynu</h4>
       <div className="two-columns">{elements}</div>
       <hr />

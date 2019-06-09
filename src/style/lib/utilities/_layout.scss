@@ -11,6 +11,22 @@ body {
   border-radius: $border-radius;
 }
 
+.border-right {
+  padding-right: $padding__big;
+  border-right: $border;
+}
+
+.border-title {
+  margin: -$margin__big;
+  margin-bottom: $margin__big;
+  padding: $margin__big;
+  border-bottom: $border;
+}
+
+.component {
+  margin-top: $margin__big;
+}
+
 hr,
 .nav-hr,
 .footer-hr {
@@ -36,15 +52,28 @@ hr,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: $margin__big;
   margin-bottom: $margin__big;
-}
-
-.stock:last-child {
-  margin-right: 0;
 }
 
 .two-columns {
   display: grid;
   grid-template-columns: auto auto;
+  grid-column-gap: $margin__big;
+}
+
+.task-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $margin__big;
+}
+
+.task-list:last-child {
+  margin-bottom: 0;
+}
+
+.task-description {
+  display: flex;
+  span {
+    margin-right: $margin__small;
+  }
 }

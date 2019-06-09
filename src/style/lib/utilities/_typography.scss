@@ -4,6 +4,12 @@ html {
 }
 
 h1 {
+  font-size: $font-size__xxl;
+  margin: 0;
+}
+
+h2 {
+  font-weight: normal;
   font-size: $font-size__xl;
   margin: 0;
 }
@@ -16,7 +22,8 @@ h3 {
 h4 {
   font-weight: normal;
   font-size: $font-size__m;
-  margin: $margin__big 0;
+  margin-top: 0;
+  margin-bottom: $margin__big;
   color: $gray;
 }
 
@@ -28,7 +35,21 @@ h4 {
   h4 {
     margin-top: 0;
     margin-bottom: $margin__smaller;
-    color: $orange;
+    color: $gray;
+  }
+}
+
+.border-title {
+  h4 {
+    margin-top: $margin__smallest;
+  }
+}
+
+.task-list {
+  font-size: $font-size__m;
+  h4 {
+    margin: 0;
+    margin-top: $margin__smallest;
   }
 }
 
