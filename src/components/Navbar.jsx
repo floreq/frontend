@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import User from "./User";
 
 function Navbar() {
@@ -6,14 +7,26 @@ function Navbar() {
     <React.Fragment>
       <nav>
         <ul>
-          <li>Podsumowanie</li>
-          <li>Dziennik aktywności</li>
+          <li>
+            <NavLink exact to="/">
+              Podsumowanie
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/task-log">Dziennik aktywności</NavLink>
+          </li>
         </ul>
         <div>
           <ul>
-            <li>Sklep 1</li>
-            <li>Sklep 2</li>
-            <li>Sklep 3</li>
+            <li>
+              <NavLink to="/workplace/1">Sklep 1</NavLink>
+            </li>
+            <li>
+              <NavLink to="/workplace/2">Sklep 2</NavLink>
+            </li>
+            <li>
+              <NavLink to="/workplace/3">Sklep 3</NavLink>
+            </li>
           </ul>
           <User />
         </div>

@@ -37,6 +37,7 @@ class Workplace extends Component {
   }
 
   render() {
+    console.log(this.props.match.params.id);
     return (
       <div>
         <Task
