@@ -1,20 +1,10 @@
 import React from "react";
 
 function Form(props) {
+  // Czy powinien zostac wyswietlony extendedTask (rozszerzony formularz)
+  const showAll = props.ifExtendedTask.includes(props.enteredTask.task);
+
   // Przypisanie do zmiennych pol zaleznych od wyboru
-  let expense = (
-    <label>
-      <h4>Kwota</h4>
-      <input
-        className="align-right"
-        type="text"
-        name="expense"
-        value={props.enteredTask.expense}
-        onChange={props.handleChange}
-      />
-      <span>zł</span>
-    </label>
-  );
   let quantity = (
     <label>
       <h4>Ilość</h4>
@@ -22,7 +12,7 @@ function Form(props) {
         className="align-right"
         type="text"
         name="quantity"
-        value={props.enteredTask.quantity}
+        value={showAll ? props.enteredTask.quantity : ""}
         onChange={props.handleChange}
       />
       <span>kg</span>
@@ -86,9 +76,19 @@ function Form(props) {
           onChange={props.handleChange}
         />
       </label>
-      {expense}
-      {quantity}
-      {type}
+      <label>
+        <h4>Kwota</h4>
+        <input
+          className="align-right"
+          type="text"
+          name="expense"
+          value={props.enteredTask.expense}
+          onChange={props.handleChange}
+        />
+        <span>zł</span>
+      </label>
+      {showAll ? quantity : null}
+      {showAll ? type : null}
       <button>Zatwierdź</button>
     </form>
   );

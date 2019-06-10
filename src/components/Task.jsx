@@ -5,12 +5,14 @@ class Task extends Component {
   constructor() {
     super();
     this.state = {
+      // extendedTask wyznacza wartosci kiedy powinien zostac wyswietlony caly formularz
+      extendedTask: ["zakup", "odbior"],
       enteredTask: {
         dateOfEntry: "",
         task: "",
         comment: "",
-        expense: 0,
-        quantity: 0,
+        expense: "",
+        quantity: "",
         type: ""
       },
       tasks: []
@@ -28,6 +30,7 @@ class Task extends Component {
     const m = d.getMonth() < 9 ? "0" + (d.getMonth() + 1) : d.getMonth() + 1;
     const year = d.getFullYear();
 
+    // Dodanie aktualnej daty do state
     this.setState(prevState => ({
       enteredTask: {
         ...prevState.enteredTask,
@@ -47,6 +50,7 @@ class Task extends Component {
     }));
   }
 
+  // Dodanie zadania do listy wszystkich zadan
   handleSubmit(event) {
     event.preventDefault();
     this.setState(prevState => {
@@ -67,6 +71,7 @@ class Task extends Component {
         <h4>Zlecenie</h4>
         <h1>{this.props.workplaceName}</h1>
         <Form
+          ifExtendedTask={this.state.extendedTask}
           enteredTask={this.state.enteredTask}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
