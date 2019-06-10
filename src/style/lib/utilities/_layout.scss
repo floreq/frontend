@@ -16,11 +16,17 @@ body {
   border-right: $border;
 }
 
-.border-title {
+.border-title,
+.border-title-extended {
   margin: -$margin__big;
   margin-bottom: $margin__big;
   padding: $margin__big;
   border-bottom: $border;
+}
+
+.border-title-extended {
+  display: flex;
+  justify-content: space-between;
 }
 
 .component {

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Task from "./Task";
 import Stock from "./Stock";
 import TasksList from "./TasksList";
+import CashStatus from "./CashStatus";
+import Summary from "./Summary";
 
 class Workplace extends Component {
   constructor() {
@@ -42,11 +44,17 @@ class Workplace extends Component {
           handleTransfer={this.handleTransfer}
         />
         <div className="two-columns">
-          <Stock stock={this.state.stock} />
-          <TasksList
-            workplaceName={this.state.workplaceName}
-            tasks={this.state.tasks}
-          />
+          <div>
+            <Stock stock={this.state.stock} />
+            <Summary />
+          </div>
+          <div>
+            <TasksList
+              workplaceName={this.state.workplaceName}
+              tasks={this.state.tasks}
+            />
+            <CashStatus />
+          </div>
         </div>
       </div>
     );
