@@ -78,7 +78,7 @@ label {
 .error-message {
   display: block;
   margin: 0;
-  margin-bottom: -$font-size__s;
+  margin-bottom: -$margin__small;
   font-size: $font-size__s;
   color: $error;
 }

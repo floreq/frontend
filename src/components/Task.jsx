@@ -13,6 +13,7 @@ const formValid = ({ formErrors, enteredTask }) => {
   // validate the form was filled out
   Object.values(enteredTask).forEach(val => {
     val === "" && (valid = false);
+    console.log("val", val);
   });
 
   return valid;
@@ -70,14 +71,11 @@ class Task extends Component {
     const { name, value } = event.target;
     let formErrors = { ...this.state.formErrors };
 
+    // Sprawdzanie wpisywanych wartosci w formularzu
     switch (name) {
       case "dateOfEntry":
         formErrors.dateOfEntry = isValidDate(value) ? "" : "dd.mm.rrrr";
         break;
-      // case "comment":
-      //   formErrors.comment =
-      //     value.length < 3 ? "minimum 3 characaters required" : "";
-      //   break;
       case "task":
         formErrors.task = this.state.possibleTasks.includes(value)
           ? ""
@@ -128,14 +126,6 @@ class Task extends Component {
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
-    this.setState(prevState => {
-      const newTaskEntry = prevState.enteredTask;
-      let tasksList = prevState.tasks;
-      tasksList.unshift(newTaskEntry);
-      return {
-        tasks: tasksList
-      };
-    });
   }
 
   render() {
