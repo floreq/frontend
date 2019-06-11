@@ -75,6 +75,14 @@ label {
   font-weight: normal;
 }
 
+.error-message {
+  display: block;
+  margin: 0;
+  margin-bottom: -$font-size__s;
+  font-size: $font-size__s;
+  color: $error;
+}
+
 footer {
   color: $color__footer;
 }

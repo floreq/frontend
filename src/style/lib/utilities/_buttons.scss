@@ -18,6 +18,11 @@ input {
   width: $width__input;
 }
 
+.error {
+  color: $error;
+  border-color: $border-error;
+}
+
 select {
   width: $width__select;
   padding-right: (($margin__smaller * 2) + $size__select-arrow);
