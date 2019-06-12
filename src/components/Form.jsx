@@ -109,8 +109,8 @@ function Form(props) {
           <span className="error-message">{fError.expense}</span>
         )}
       </label>
-      {quantity}
-      {type}
+      {props.enteredTask.extended ? quantity : null}
+      {props.enteredTask.extended ? type : null}
       <button>Zatwierdź</button>
     </form>
   );

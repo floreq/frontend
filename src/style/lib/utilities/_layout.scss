@@ -61,10 +61,15 @@ hr,
   margin-bottom: $margin__big;
 }
 
-.two-columns {
+.two-columns,
+.two-diffrent-columns {
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: $margin__big;
+}
+
+.two-diffrent-columns {
+  grid-template-columns: 1fr 35%;
 }
 
 .task-list {

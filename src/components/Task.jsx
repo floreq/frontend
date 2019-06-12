@@ -13,8 +13,16 @@ const formValid = ({ formErrors, enteredTask }) => {
   // validate the form was filled out
   Object.values(enteredTask).forEach(val => {
     val === "" && (valid = false);
-    console.log("val", val);
   });
+
+  // Object.getOwnPropertyNames(enteredTask).forEach(val => {
+  //   if (enteredTask[val] === "" && val !== "comment") {
+  //     valid = false;
+  //   } else {
+  //     valid = true;
+  //   }
+  //   console.log(enteredTask[val]);
+  // });
 
   return valid;
 };
@@ -30,10 +38,13 @@ class Task extends Component {
         comment: "",
         expense: "",
         quantity: "",
-        type: ""
+        type: "",
+        extended: true
       },
       possibleTasks: ["zakup", "odbior", "zaliczka", "wplywy", "wydatki"],
       possibleTypes: ["St", "Kl"],
+      // extendedTasks okresla czy wszystkie pokazac wszystkie pola formularza
+      extendedTasks: ["zakup", "odbior"],
       // formErrors przechowuje bledy walidacyjne (np. Niewlasciwy format daty)
       formErrors: {
         dateOfEntry: "",

@@ -44,7 +44,7 @@ class Workplace extends Component {
           workplaceName={this.state.workplaceName}
           handleTransfer={this.handleTransfer}
         />
-        <div className="two-columns">
+        <div className="two-diffrent-columns">
           <div>
             <Stock stock={this.state.stock} />
             <Summary />
