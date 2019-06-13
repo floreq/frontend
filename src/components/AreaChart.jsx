@@ -5,6 +5,7 @@ class AreaChart extends Component {
   state = {
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       legend: {
         display: false
       },

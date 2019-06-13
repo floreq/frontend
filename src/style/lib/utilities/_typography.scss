@@ -39,9 +39,11 @@ h4 {
   }
 }
 
-.border-title {
+.border-title,
+.border-title-extended {
   h4 {
     margin-top: $margin__smallest;
+    margin-bottom: 0;
   }
 }
 

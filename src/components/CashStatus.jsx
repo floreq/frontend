@@ -32,10 +32,8 @@ class CashStatus extends Component {
               <h4>+ 1230,00 zł</h4>
             </div>
           </div>
-          <AreaChart data={this.state.data} options={this.state.options} />
-          <br />
-          <br />
-          <div className="border-title-extended">
+          <AreaChart data={this.state.data} />
+          <div className="border-title-extended border-top">
             <div>
               <h2>Wydatki</h2>
               <h4>łącznie</h4>
@@ -45,6 +43,7 @@ class CashStatus extends Component {
               <h4>- 120,90 zł</h4>
             </div>
           </div>
+          <AreaChart data={this.state.data} />
         </div>
       </div>
     );
