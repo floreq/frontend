@@ -3,7 +3,7 @@ import Task from "./Task";
 import Stock from "./Stock";
 import TasksList from "./TasksList";
 import CashStatus from "./CashStatus";
-import Summary from "./Summary";
+import ShortSummary from "./ShortSummary";
 
 class Workplace extends Component {
   constructor() {
@@ -16,7 +16,7 @@ class Workplace extends Component {
           id: 1,
           name: "Złom stalowy",
           shortname: "St",
-          value: "1 343,202"
+          value: "1343,202"
         },
         {
           id: 2,
@@ -47,7 +47,7 @@ class Workplace extends Component {
         <div className="two-diffrent-columns">
           <div>
             <Stock stock={this.state.stock} />
-            <Summary />
+            <ShortSummary />
           </div>
           <div>
             <TasksList

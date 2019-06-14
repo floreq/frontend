@@ -1,6 +1,7 @@
 import React from "react";
 
 function Stock(props) {
+  // Pobranie i rozmieszczenie danych z tablicy
   const elements = props.stock.map(item => {
     return (
       <div key={item.id} className="border stock">
@@ -8,7 +9,7 @@ function Stock(props) {
           <h4 className="orange">{item.shortname}</h4>
           <h3>{item.name}</h3>
         </div>
-        <h3 className="non-bold">{`${item.value} kg`}</h3>
+        <h3 className="non-bold">{`${item.value} t`}</h3>
       </div>
     );
   });

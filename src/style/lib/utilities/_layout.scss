@@ -68,7 +68,8 @@ hr,
 }
 
 .two-columns,
-.two-diffrent-columns {
+.two-diffrent-columns,
+.two-diffrent-columns-reverse {
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: $margin__big;
@@ -76,6 +77,10 @@ hr,
 
 .two-diffrent-columns {
   grid-template-columns: 1fr 35%;
+}
+
+.two-diffrent-columns-reverse {
+  grid-template-columns: 1fr 65%;
 }
 
 .task-list {
@@ -95,102 +100,11 @@ hr,
   }
 }
 
-//body {
-//   font-family: $font-family__base;
-//   margin: auto;
-//   padding: $padding__big;
-//   max-width: 1600px; // Tymczasowo
-// }
-
-// .border {
-//   padding: $padding__big;
-//   border: $border;
-//   border-radius: $border-radius;
-// }
-
-// .border-right {
-//   padding-right: $padding__big;
-//   border-right: $border;
-// }
-
-// .border-top {
-//   padding-top: $padding__big;
-//   border-top: $border;
-// }
-
-// .border-title,
-// .border-title-extended {
-// }
-
-// .border-title-extended {
-//   margin: 0;
-//   padding: 0;
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .component {
-//   margin-top: $margin__big;
-// }
-
-// hr,
-// .nav-hr,
-// .footer-hr {
-//   display: block;
-//   margin: 0;
-//   padding: 0;
-//   border: 0;
-//   border-top: $border;
-//   height: $border-width;
-// }
-
-// .nav-hr,
-// .footer-hr,
-// .border-hr {
-//   margin-left: -$margin__big;
-//   margin-right: -$margin__big;
-// }
-
-// .footer-hr {
-//   margin-top: $margin__big;
-// }
-
-// .border-hr {
-//   margin-top: $margin__big - $margin__smaller;
-//   margin-bottom: $margin__big;
-// }
-
-// .stock {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   margin-bottom: $margin__big;
-// }
-
-// .two-columns,
-// .two-diffrent-columns {
-//   display: grid;
-//   grid-template-columns: auto auto;
-//   grid-column-gap: $margin__big;
-// }
-
-// .two-diffrent-columns {
-//   grid-template-columns: 1fr 35%;
-// }
-
-// .task-list {
-//   display: flex;
-//   justify-content: space-between;
-//   margin-bottom: $margin__big;
-// }
-
-// .task-list:last-child {
-//   margin-bottom: 0;
-// }
-
-// .task-description {
-//   display: flex;
-//   span {
-//     margin-right: $margin__small;
-//   }
-// }
+.summary {
+  div {
+    margin-bottom: $margin__big;
+  }
+  div:last-of-type {
+    margin: 0;
+  }
+}

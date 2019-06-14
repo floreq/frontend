@@ -1,13 +1,16 @@
 import React, { Component } from "react";
+import { simpleChart } from "./../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
 
 class CashStatus extends Component {
   constructor() {
     super();
     this.state = {
+      // Dane potrzebne do wyswietlenia poprawnie wykresow
       data: {
         labels: ["05", "06", "07", "08", "09", "10"],
         datasets: [
+          // Wykres pierwszy
           {
             label: "Stan kasy",
             backgroundColor: "#e0fbfc",
@@ -32,7 +35,7 @@ class CashStatus extends Component {
               <h4>+ 1230,00 zł</h4>
             </div>
           </div>
-          <AreaChart data={this.state.data} />
+          <AreaChart options={simpleChart.options} data={this.state.data} />
           <div className="border-title-extended border-top">
             <div>
               <h2>Wydatki</h2>
@@ -43,7 +46,7 @@ class CashStatus extends Component {
               <h4>- 120,90 zł</h4>
             </div>
           </div>
-          <AreaChart data={this.state.data} />
+          <AreaChart options={simpleChart.options} data={this.state.data} />
         </div>
       </div>
     );

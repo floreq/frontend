@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { isValidDate } from "./../scripts/isValidDate";
 import Form from "./Form";
 
+// Stwierdzenie walidacji formularza
 const formValid = ({ formErrors, enteredTask }) => {
   let valid = true;
 
@@ -41,9 +42,10 @@ class Task extends Component {
         type: "",
         extended: true
       },
+      // possibleTasks/Types zawieraja mozliwe do wyboru elementy, walidacja
       possibleTasks: ["zakup", "odbior", "zaliczka", "wplywy", "wydatki"],
       possibleTypes: ["St", "Kl"],
-      // extendedTasks okresla czy wszystkie pokazac wszystkie pola formularza
+      // extendedTasks okresla czy pokazac wszystkie pola formularza
       extendedTasks: ["zakup", "odbior"],
       // formErrors przechowuje bledy walidacyjne (np. Niewlasciwy format daty)
       formErrors: {
@@ -121,6 +123,7 @@ class Task extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    // Przepuszczenie lub zatrzymanie formularza w zaleznosci jego poprawnosci
     if (formValid(this.state)) {
       this.setState(prevState => {
         const newTaskEntry = prevState.enteredTask;
@@ -130,9 +133,7 @@ class Task extends Component {
           tasks: tasksList
         };
       });
-
       this.props.handleTransfer(this.state.tasks);
-
       console.log("Submited", this.state);
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
