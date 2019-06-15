@@ -34,3 +34,14 @@ select {
   background-position-x: $select-arrow-position-x;
   background-position-y: $select-arrow-position-y;
 }
+
+.sorting {
+  margin-top: $margin__smaller;
+  margin-left: -$margin__smaller;
+  width: auto;
+  color: $gray;
+  background-position-x: 6.9rem;
+  option {
+    color: $black;
+  }
+}

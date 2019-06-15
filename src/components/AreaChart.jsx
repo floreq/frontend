@@ -2,7 +2,6 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 // Komponent tworzacy wykres liniowy z tlem pod spodem
-
 function AreaChart(props) {
   return (
     <div className="right-chart">

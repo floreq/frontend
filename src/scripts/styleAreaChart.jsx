@@ -1,6 +1,7 @@
 // Wykresy z biblioteki chart.js
 // Dokumentacja https://www.chartjs.org/docs/latest/
 
+// Ustawienia wykresow
 const chartVariables = {
   displayLegend: false,
   fontFamily: "PT Sans",
@@ -108,7 +109,7 @@ export const chartWithBorder = {
             drawBorder: false
           },
           ticks: {
-            padding: chartVariables.padding,
+            padding: 20,
             beginAtZero: chartVariables.beginAtZero,
             fontFamily: chartVariables.fontFamily,
             fontSize: chartVariables.fontSize,

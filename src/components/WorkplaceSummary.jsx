@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { chartWithBorder } from "./../scripts/styleAreaChart";
+import { chartWithBorder } from "../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
+import SortingSelection from "./SortingSelection";
 
-class ShortSummary extends Component {
+class WorkplaceSummary extends Component {
   constructor() {
     super();
     this.state = {
@@ -40,14 +41,46 @@ class ShortSummary extends Component {
         <h4>Podsumowanie</h4>
         <div className="border summary">
           <div className="two-diffrent-columns-reverse">
-            <h1>Złom stalowy</h1>
+            <h3>Złom stalowy</h3>
             <AreaChart
               options={chartWithBorder.options}
               data={this.state.data}
             />
           </div>
           <div className="two-diffrent-columns-reverse">
-            <h1>Metal kolorowy</h1>
+            <h3>Metal kolorowy</h3>
+            <AreaChart
+              options={chartWithBorder.options}
+              data={this.state.data}
+            />
+          </div>
+        </div>
+        <div className="border summary component">
+          <div className="two-diffrent-columns-reverse">
+            <div>
+              <h3>Zaliczka</h3>
+              <SortingSelection />
+            </div>
+            <AreaChart
+              options={chartWithBorder.options}
+              data={this.state.data}
+            />
+          </div>
+          <div className="two-diffrent-columns-reverse">
+            <div>
+              <h3>Wpływy</h3>
+              <SortingSelection />
+            </div>
+            <AreaChart
+              options={chartWithBorder.options}
+              data={this.state.data}
+            />
+          </div>
+          <div className="two-diffrent-columns-reverse">
+            <div>
+              <h3>Wydatki</h3>
+              <SortingSelection />
+            </div>
             <AreaChart
               options={chartWithBorder.options}
               data={this.state.data}
@@ -59,4 +92,4 @@ class ShortSummary extends Component {
   }
 }
 
-export default ShortSummary;
+export default WorkplaceSummary;
