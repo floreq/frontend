@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { chartWithBorder } from "../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
+import BarChart from "./BarChart";
 import SortingSelection from "./SortingSelection";
 
 class WorkplaceSummary extends Component {
@@ -61,7 +62,7 @@ class WorkplaceSummary extends Component {
               <h3>Zaliczka</h3>
               <SortingSelection />
             </div>
-            <AreaChart
+            <BarChart
               options={chartWithBorder.options}
               data={this.state.data}
             />
