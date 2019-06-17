@@ -28,7 +28,7 @@ class CashStatus extends Component {
           <div className="border-title-extended">
             <div>
               <h2>Stan kasy</h2>
-              <h4>obecnie</h4>
+              <h4>Obecnie</h4>
             </div>
             <div className="align-right">
               <h2>12345,10 zł</h2>
@@ -39,7 +39,7 @@ class CashStatus extends Component {
           <div className="border-title-extended border-top">
             <div>
               <h2>Wydatki</h2>
-              <h4>tygodniowo</h4>
+              <h4>Tygodniowo</h4>
             </div>
             <div className="align-right">
               <h2>- 6012,90 zł</h2>

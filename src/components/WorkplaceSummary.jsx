@@ -9,30 +9,61 @@ class WorkplaceSummary extends Component {
     super();
     this.state = {
       // Dane potrzebne do wyswietlenia poprawnie wykresow
-      data: {
-        labels: [
-          "05",
-          "06",
-          "07",
-          "08",
-          "09",
-          "10",
-          "11",
-          "12",
-          "13",
-          "14",
-          "15",
-          "16"
-        ],
-        datasets: [
-          // Wykres pierwszy
-          {
-            label: "Stan kasy",
-            backgroundColor: "#e0fbfc",
-            borderColor: "#98c1d9",
-            data: [2000.123, 2122.651, 5123.12, 3001.251, 4000.783, 4000.0]
-          }
-        ]
+      stockData: {
+        data: {
+          labels: [
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16"
+          ],
+          datasets: [
+            // Wykres pierwszy
+            {
+              label: "Stan kasy",
+              backgroundColor: "#e0fbfc",
+              borderColor: "#98c1d9",
+              data: [2000.123, 2122.651, 5123.12, 3001.251, 4000.783, 4000.0]
+            }
+          ]
+        }
+      },
+      barChart: {
+        data: {
+          labels: [
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16"
+          ],
+          datasets: [
+            {
+              label: "Stan kasy",
+              backgroundColor: "#e0fbfc",
+              borderColor: "#98c1d9",
+              borderWidth: 3,
+              hoverBorderColor: "#98c1d9",
+              hoverBorderWidth: 3,
+              data: [2000.123, 2122.651, 5123.12, 3001.251, 4000.783, 4000.0]
+            }
+          ]
+        }
       }
     };
   }
@@ -45,14 +76,14 @@ class WorkplaceSummary extends Component {
             <h3>Złom stalowy</h3>
             <AreaChart
               options={chartWithBorder.options}
-              data={this.state.data}
+              data={this.state.stockData.data}
             />
           </div>
           <div className="two-diffrent-columns-reverse">
             <h3>Metal kolorowy</h3>
             <AreaChart
               options={chartWithBorder.options}
-              data={this.state.data}
+              data={this.state.stockData.data}
             />
           </div>
         </div>
@@ -64,7 +95,7 @@ class WorkplaceSummary extends Component {
             </div>
             <BarChart
               options={chartWithBorder.options}
-              data={this.state.data}
+              data={this.state.barChart.data}
             />
           </div>
           <div className="two-diffrent-columns-reverse">
@@ -74,7 +105,7 @@ class WorkplaceSummary extends Component {
             </div>
             <AreaChart
               options={chartWithBorder.options}
-              data={this.state.data}
+              data={this.state.stockData.data}
             />
           </div>
           <div className="two-diffrent-columns-reverse">
@@ -84,7 +115,7 @@ class WorkplaceSummary extends Component {
             </div>
             <AreaChart
               options={chartWithBorder.options}
-              data={this.state.data}
+              data={this.state.stockData.data}
             />
           </div>
         </div>
