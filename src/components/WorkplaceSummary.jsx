@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { chartWithBorder } from "../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
 import BarChart from "./BarChart";
-import SortingSelection from "./SortingSelection";
+import { selectDayPeriod } from "./SortingTypes";
 
 class WorkplaceSummary extends Component {
   constructor() {
@@ -91,7 +91,7 @@ class WorkplaceSummary extends Component {
           <div className="two-diffrent-columns-reverse">
             <div>
               <h3>Zaliczka</h3>
-              <SortingSelection />
+              {selectDayPeriod}
             </div>
             <BarChart
               options={chartWithBorder.options}
@@ -101,7 +101,7 @@ class WorkplaceSummary extends Component {
           <div className="two-diffrent-columns-reverse">
             <div>
               <h3>Wpływy</h3>
-              <SortingSelection />
+              {selectDayPeriod}
             </div>
             <AreaChart
               options={chartWithBorder.options}
@@ -111,7 +111,7 @@ class WorkplaceSummary extends Component {
           <div className="two-diffrent-columns-reverse">
             <div>
               <h3>Wydatki</h3>
-              <SortingSelection />
+              {selectDayPeriod}
             </div>
             <AreaChart
               options={chartWithBorder.options}

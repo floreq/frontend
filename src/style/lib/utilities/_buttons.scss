@@ -35,13 +35,26 @@ select {
   background-position-y: $select-arrow-position-y;
 }
 
-.sorting {
+.sorting,
+.sorting-location {
   margin-top: $margin__smaller;
-  margin-left: -$margin__smaller;
-  width: auto;
-  color: $gray;
+  width: 8.5rem;
   background-position-x: 6.9rem;
-  option {
-    color: $black;
+}
+
+.sorting-location {
+  width: auto;
+  background-position-x: 3.9rem;
+}
+
+.border {
+  .sorting {
+    margin-left: -$margin__smaller;
+    width: auto;
+    color: $gray;
+    background-position-x: 6.9rem;
+    option {
+      color: $black;
+    }
   }
 }
