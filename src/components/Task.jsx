@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { isValidDate } from "./../scripts/isValidDate";
+import { isValidDate } from "../scripts/isValidDate";
+import { getFormattedDate } from "../scripts/getFormattedDate";
 import Form from "./Form";
 
 // Stwierdzenie walidacji formularza
@@ -64,18 +65,11 @@ class Task extends Component {
 
   // Wykonanie funkcji gdy komponent sie zaladuje
   componentDidMount() {
-    const d = new Date();
-    // Dodanie 0 przed jednocyfrowym dniem
-    const day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
-    // Dodanie 0 przed jednocyfrowym miesiacem
-    const m = d.getMonth() < 9 ? "0" + (d.getMonth() + 1) : d.getMonth() + 1;
-    const year = d.getFullYear();
-
     // Dodanie aktualnej daty do state
     this.setState(prevState => ({
       enteredTask: {
         ...prevState.enteredTask,
-        dateOfEntry: `${day}.${m}.${year}`
+        dateOfEntry: getFormattedDate()
       }
     }));
   }
@@ -116,7 +110,6 @@ class Task extends Component {
       },
       formErrors
     }));
-    console.log(this.state);
   }
 
   // Dodanie zadania do listy wszystkich zadan
@@ -131,9 +124,10 @@ class Task extends Component {
         tasksList.unshift(newTaskEntry);
         return {
           tasks: tasksList,
-          // Wyczyszczenie pol (inputow) z poprzednio wprowadzonych danych
+          // Wyczyszczenie pol formularza z wprowadzonych danych
           enteredTask: {
             ...prevState.enteredTask,
+            dateOfEntry: getFormattedDate(),
             comment: "",
             expense: "",
             quantity: ""
