@@ -55,6 +55,14 @@ h4 {
   }
 }
 
+.task-log {
+  li {
+    h4 {
+      margin: 0;
+    }
+  }
+}
+
 form {
   display: flex;
   justify-content: space-between;

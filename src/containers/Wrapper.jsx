@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./../components/Navbar";
-import Workplace from "./../components/Workplace";
-import Summary from "./../components/Summary";
-import TaskLog from "../components/TaskLog";
-import Footer from "./../components/Footer";
+import Navbar from "../components/Navbar";
+import Workplace from "./Workplace";
+import Summary from "./Summary";
+import TaskLog from "./TaskLog";
+import Footer from "../components/Footer";
 
 function Wrapper() {
   return (

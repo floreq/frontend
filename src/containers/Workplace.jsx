@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Task from "./Task";
-import Stock from "./Stock";
-import TasksList from "./TasksList";
-import CashStatus from "./CashStatus";
-import WorkplaceSummary from "./WorkplaceSummary";
+import Task from "../components/Task";
+import Stock from "../components/Stock";
+import TasksList from "../components/TasksList";
+import CashStatus from "../components/CashStatus";
+import WorkplaceSummary from "../components/WorkplaceSummary";
 
 class Workplace extends Component {
   constructor() {

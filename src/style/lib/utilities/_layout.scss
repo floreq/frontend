@@ -108,3 +108,24 @@ hr,
     margin-bottom: 0;
   }
 }
+
+.task-log {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+    padding-bottom: $margin__big;
+    margin: $margin__big 0;
+    border-bottom: $border;
+    button {
+      grid-column: 8;
+    }
+  }
+  li:last-child {
+    margin: 0;
+    padding-bottom: 0;
+    border-bottom: unset;
+  }
+}

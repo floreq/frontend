@@ -1,5 +1,7 @@
 button {
+  padding: 0;
   font-size: $font-size__m;
+  text-align: right;
   border: none;
   background: none;
   color: $orange;
@@ -8,14 +10,11 @@ button {
 input,
 select {
   padding: $margin__smaller;
+  width: $width__input;
   font-size: $font-size__m;
   border: $border;
   border-radius: $border-radius__inputs;
   background: unset;
-}
-
-input {
-  width: $width__input;
 }
 
 .error {
@@ -37,9 +36,14 @@ select {
 
 .sorting,
 .sorting-location {
-  margin-top: $margin__smaller;
+  margin-right: $margin__big;
   width: 8.5rem;
   background-position-x: 6.9rem;
+}
+
+.sorting:last-child,
+.sorting-location:last-child {
+  margin-right: 0;
 }
 
 .sorting-location {
@@ -49,6 +53,8 @@ select {
 
 .border {
   .sorting {
+    margin-top: $margin__smaller;
+    margin-right: 0;
     margin-left: -$margin__smaller;
     width: auto;
     color: $gray;
