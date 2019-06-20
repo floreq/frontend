@@ -1,6 +1,7 @@
 import React from "react";
 
 function Form(props) {
+  // Zmienna potrzebna do wyswietlenia bledu walidacji
   const fError = props.formErrors;
   // Przypisanie do zmiennych pol zaleznych od wyboru
   let quantity = (
@@ -16,7 +17,8 @@ function Form(props) {
         onChange={props.handleChange}
       />
       <span>kg</span>
-      {fError.quantity.length > 0 && (
+      {// Wyswietlenie bledu walidacji
+      fError.quantity.length > 0 && (
         <span className="error-message">{fError.quantity}</span>
       )}
     </label>
