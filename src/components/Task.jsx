@@ -130,11 +130,17 @@ class Task extends Component {
         let tasksList = prevState.tasks;
         tasksList.unshift(newTaskEntry);
         return {
-          tasks: tasksList
+          tasks: tasksList,
+          // Wyczyszczenie pol (inputow) z poprzednio wprowadzonych danych
+          enteredTask: {
+            ...prevState.enteredTask,
+            comment: "",
+            expense: "",
+            quantity: ""
+          }
         };
       });
       this.props.handleTransfer(this.state.tasks);
-      console.log("Submited", this.state);
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
