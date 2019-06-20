@@ -119,8 +119,10 @@ hr,
     padding-bottom: $margin__big;
     margin: $margin__big 0;
     border-bottom: $border;
-    button {
+    .cancel {
       grid-column: 8;
+      align-self: center;
+      justify-self: end;
     }
   }
   li:last-child {
