@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="15mm"
-   height="15mm"
-   viewBox="0 0 15 15"
+   width="43.189999"
+   height="43.189999"
+   viewBox="0 0 11.427354 11.427354"
    version="1.1"
    id="svg7135"
    inkscape:version="0.92.4 (unknown)"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="-18.190927"
-     inkscape:cy="8.4536313"
+     inkscape:zoom="15.839192"
+     inkscape:cx="13.360777"
+     inkscape:cy="13.548283"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -35,7 +35,8 @@
      inkscape:window-height="995"
      inkscape:window-x="55"
      inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     units="px" />
   <metadata
      id="metadata7132">
     <rdf:RDF>
@@ -52,27 +53,22 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-282)">
-    <g
-       transform="translate(-411.77148,255.72796)"
-       id="g3237">
-      <g
-         id="g7178">
-        <rect
-           ry="1.4730413"
-           y="33.695347"
-           x="415.65573"
-           height="5.2543569"
-           width="7.2314887"
-           id="rect3233"
-           style="fill:none;fill-opacity:1;stroke:#e8e8e8;stroke-width:0.79374999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-        <circle
-           r="1.8831655"
-           cy="30.477543"
-           cx="419.27148"
-           id="circle3235"
-           style="fill:none;fill-opacity:1;stroke:#e8e8e8;stroke-width:0.79374999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      </g>
-    </g>
+     transform="translate(0,-285.57265)">
+    <rect
+       ry="1.1693064"
+       y="291.23419"
+       x="3.2565949"
+       height="3.5706079"
+       width="4.9141731"
+       id="rect3233"
+       style="fill:none;fill-opacity:1;stroke:#e8e8e8;stroke-width:0.53938681;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       rx="1.1850249" />
+    <ellipse
+       cy="289.04755"
+       cx="5.7136879"
+       id="circle3235"
+       style="fill:none;fill-opacity:1;stroke:#e8e8e8;stroke-width:0.53938681;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       rx="1.2797091"
+       ry="1.2797085" />
   </g>
 </svg>

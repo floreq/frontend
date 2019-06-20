@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import userIcon from "./../style/lib/icons/user-icon.svg";
 import bottomArrow from "./../style/lib/icons/bottom-arrow.svg";
 
 class User extends Component {
@@ -13,7 +12,7 @@ class User extends Component {
   render() {
     return (
       <div className="user border">
-        <img src={userIcon} alt="user-icon" />
+        <div className="user-icon" />
         <span>{this.state.userName}</span>
         <img src={bottomArrow} alt="bottom-arrow" />
       </div>

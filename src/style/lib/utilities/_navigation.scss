@@ -34,6 +34,13 @@ nav {
   display: flex;
   align-items: center;
   padding: $padding__smaller $padding__small;
+  .user-icon {
+    border: $border;
+    border-radius: 50%;
+    width: ($margin__big + 0.2);
+    height: ($margin__big + 0.2);
+    background: url("./lib/icons/user-icon.svg") no-repeat 50% 50%; // add custom arrow
+  }
   img {
     border: $border;
     border-radius: 50%;
