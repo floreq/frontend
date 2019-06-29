@@ -12,30 +12,30 @@ class TaskLog extends Component {
     this.state = {
       tasks: [
         {
-          dateOfEntry: "21.09.2019",
+          actionDate: "21.09.2019",
           task: "Zakup",
           comment: "",
           expense: "2010",
           quantity: "320",
-          type: "Stalowy",
+          metalType: "Stalowy",
           extended: true
         },
         {
-          dateOfEntry: "22.09.2019",
+          actionDate: "22.09.2019",
           task: "Zakup",
           comment: "",
           expense: "2010",
           quantity: "320",
-          type: "Stalowy",
+          metalType: "Stalowy",
           extended: true
         },
         {
-          dateOfEntry: "23.09.2019",
+          actionDate: "23.09.2019",
           task: "Zakup",
           comment: "",
           expense: "2010",
           quantity: "320",
-          type: "Stalowy",
+          metalType: "Stalowy",
           extended: true
         }
       ]

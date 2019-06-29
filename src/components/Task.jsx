@@ -35,12 +35,12 @@ class Task extends Component {
     this.state = {
       // enteredTask przechowuje wprowadzane dane przez uzytkownika
       enteredTask: {
-        dateOfEntry: "",
+        actionDate: "",
         task: "",
         comment: "",
         expense: "",
         quantity: "",
-        type: "",
+        metalType: "",
         extended: true
       },
       // possibleTasks/Types zawieraja mozliwe do wyboru elementy, walidacja
@@ -50,12 +50,12 @@ class Task extends Component {
       extendedTasks: ["zakup", "odbior"],
       // formErrors przechowuje bledy walidacyjne (np. Niewlasciwy format daty)
       formErrors: {
-        dateOfEntry: "",
+        actionDate: "",
         task: "",
         comment: "",
         expense: "",
         quantity: "",
-        type: ""
+        metalType: ""
       },
       tasks: []
     };
@@ -69,7 +69,7 @@ class Task extends Component {
     this.setState(prevState => ({
       enteredTask: {
         ...prevState.enteredTask,
-        dateOfEntry: getFormattedDate()
+        actionDate: getFormattedDate()
       }
     }));
   }
@@ -80,8 +80,8 @@ class Task extends Component {
 
     // Sprawdzanie wpisywanych wartosci w formularzu
     switch (name) {
-      case "dateOfEntry":
-        formErrors.dateOfEntry = isValidDate(value) ? "" : "dd.mm.rrrr";
+      case "actionDate":
+        formErrors.actionDate = isValidDate(value) ? "" : "dd.mm.rrrr";
         break;
       case "task":
         formErrors.task = this.state.possibleTasks.includes(value)
@@ -95,7 +95,7 @@ class Task extends Component {
         formErrors.quantity = isNaN(value) ? "np. 1100.90" : "";
         break;
       case "type":
-        formErrors.type = this.state.possibleTypes.includes(value)
+        formErrors.metalType = this.state.possibleTypes.includes(value)
           ? ""
           : "Brak takiego rodzaju";
         break;
@@ -127,7 +127,7 @@ class Task extends Component {
           // Wyczyszczenie pol formularza z wprowadzonych danych
           enteredTask: {
             ...prevState.enteredTask,
-            dateOfEntry: getFormattedDate(),
+            actionDate: getFormattedDate(),
             comment: "",
             expense: "",
             quantity: ""

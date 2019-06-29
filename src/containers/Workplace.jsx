@@ -30,6 +30,24 @@ class Workplace extends Component {
     this.handleTransfer = this.handleTransfer.bind(this);
   }
 
+  componentDidMount() {
+    fetch("http://localhost:3001/api/tasks")
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        this.setState({ tasks: response });
+      });
+  }
+
+  // componentDidMount() {
+  //   fetch("https://api.imgflip.com/get_memes")
+  //     .then(response => response.json())
+  //     .then(response => {
+  //       const { memes } = response.data;
+  //       this.setState({ allMemeImages: memes });
+  //     });
+  // }
+
   handleTransfer(element) {
     this.setState({
       tasks: element

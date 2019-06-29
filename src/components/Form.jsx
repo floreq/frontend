@@ -27,21 +27,21 @@ function Form(props) {
     <label>
       <h4>Rodzaj złomu</h4>
       <select
-        className={props.formErrors.type.length > 0 ? "error" : null}
+        className={props.formErrors.metalType.length > 0 ? "error" : null}
         name="type"
         // Jesli sie nie zmienilo opcji, wartosc zostawala pusta
         value={
-          props.enteredTask.type === ""
-            ? (props.enteredTask.type = "St")
-            : props.enteredTask.type
+          props.enteredTask.metalType === ""
+            ? (props.enteredTask.metalType = "St")
+            : props.enteredTask.metalType
         }
         onChange={props.handleChange}
       >
         <option value="St">Stalowy</option>
         <option value="Kl">Kolorowy</option>
       </select>
-      {fError.type.length > 0 && (
-        <span className="error-message">{fError.type}</span>
+      {fError.metalType.length > 0 && (
+        <span className="error-message">{fError.metalType}</span>
       )}
     </label>
   );
@@ -51,14 +51,14 @@ function Form(props) {
       <label>
         <h4>W dniu</h4>
         <input
-          className={fError.dateOfEntry.length > 0 ? "error" : null}
+          className={fError.actionDate.length > 0 ? "error" : null}
           type="text"
-          name="dateOfEntry"
-          value={props.enteredTask.dateOfEntry}
+          name="actionDate"
+          value={props.enteredTask.actionDate}
           onChange={props.handleChange}
         />
-        {fError.dateOfEntry.length > 0 && (
-          <span className="error-message">{fError.dateOfEntry}</span>
+        {fError.actionDate.length > 0 && (
+          <span className="error-message">{fError.actionDate}</span>
         )}
       </label>
       <label>
