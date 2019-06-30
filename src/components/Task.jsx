@@ -40,8 +40,7 @@ class Task extends Component {
         comment: "",
         expense: "",
         quantity: "",
-        metalType: "",
-        extended: true
+        metalType: ""
       },
       // possibleTasks/Types zawieraja mozliwe do wyboru elementy, walidacja
       possibleTasks: ["zakup", "odbior", "zaliczka", "wplywy", "wydatki"],

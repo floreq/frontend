@@ -55,10 +55,13 @@ h4 {
   }
 }
 
-.task-log {
-  li {
+table {
+  tr {
     h4 {
       margin: 0;
+    }
+    .cancel {
+      text-align: right;
     }
   }
 }

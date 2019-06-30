@@ -39,15 +39,6 @@ class Workplace extends Component {
       });
   }
 
-  // componentDidMount() {
-  //   fetch("https://api.imgflip.com/get_memes")
-  //     .then(response => response.json())
-  //     .then(response => {
-  //       const { memes } = response.data;
-  //       this.setState({ allMemeImages: memes });
-  //     });
-  // }
-
   handleTransfer(element) {
     this.setState({
       tasks: element

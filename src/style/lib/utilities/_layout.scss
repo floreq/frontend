@@ -109,25 +109,47 @@ hr,
   }
 }
 
-.task-log {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  li {
-    display: grid;
-    grid-template-columns: repeat(8, auto);
-    padding-bottom: $margin__big;
-    margin: $margin__big 0;
+// .task-log {
+//   list-style-type: none;
+//   margin: 0;
+//   padding: 0;
+//   li {
+//     display: grid;
+//     grid-template-columns: repeat(8, auto);
+//     padding-bottom: $margin__big;
+//     margin: $margin__big 0;
+//     border-bottom: $border;
+//     .cancel {
+//       grid-column: 8;
+//       align-self: center;
+//       justify-self: end;
+//     }
+//   }
+//   li:last-child {
+//     margin: 0;
+//     padding-bottom: 0;
+//     border-bottom: unset;
+//   }
+// }
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  margin-bottom: -$margin__big;
+  border-spacing: 0 $margin__big;
+
+  tr {
     border-bottom: $border;
-    .cancel {
-      grid-column: 8;
-      align-self: center;
-      justify-self: end;
+    padding-bottom: $margin__big 0;
+    td {
+      padding-bottom: $margin__big;
+      border-bottom: $border;
     }
   }
-  li:last-child {
-    margin: 0;
-    padding-bottom: 0;
-    border-bottom: unset;
+  tr:last-child {
+    td {
+      padding-bottom: 0;
+      border-bottom: unset;
+    }
   }
 }

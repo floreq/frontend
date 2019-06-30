@@ -2,44 +2,44 @@ import React from "react";
 
 function TaskLogList(props) {
   const logEntry = props.tasks.map(item => (
-    <li key={item.actionDate}>
-      <div>
+    <tr key={item.actionDate}>
+      <td>
         <h4>W dniu</h4>
         {item.actionDate}
-      </div>
-      <div>
+      </td>
+      <td>
         <h4>Zadanie</h4>
         {item.task}
-      </div>
-      <div>
+      </td>
+      <td>
         <h4>Komentarz</h4>
         {item.comment === "" ? "Brak" : item.comment}
-      </div>
-      <div>
+      </td>
+      <td>
         <h4>Kwota</h4>
         {`${item.expense} zł`}
-      </div>
-      <div>
+      </td>
+      <td>
         <h4>Ilość</h4>
         {`${item.quantity} kg`}
-      </div>
-      <div>
+      </td>
+      <td>
         <h4>Rodzaj materiału</h4>
         {item.metalType}
-      </div>
-      <div>
+      </td>
+      <td>
         <h4>Gdzie</h4>
         Sklep 1
-      </div>
-      <div className="cancel">
+      </td>
+      <td className="cancel">
         <button>Anuluj</button>
-      </div>
-    </li>
+      </td>
+    </tr>
   ));
   return (
-    <div className="component">
-      <ul className="task-log">{logEntry}</ul>
-    </div>
+    <table>
+      <tbody>{logEntry}</tbody>
+    </table>
   );
 }
 
