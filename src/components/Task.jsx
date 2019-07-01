@@ -44,9 +44,7 @@ class Task extends Component {
       },
       // possibleTasks/Types zawieraja mozliwe do wyboru elementy, walidacja
       possibleTasks: ["zakup", "odbior", "zaliczka", "wplywy", "wydatki"],
-      possibleTypes: ["St", "Kl"],
-      // extendedTasks okresla czy pokazac wszystkie pola formularza
-      extendedTasks: ["zakup", "odbior"],
+      possibleTypes: ["stalowy", "kolorowy"],
       // formErrors przechowuje bledy walidacyjne (np. Niewlasciwy format daty)
       formErrors: {
         actionDate: "",
@@ -55,8 +53,7 @@ class Task extends Component {
         expense: "",
         quantity: "",
         metalType: ""
-      },
-      tasks: []
+      }
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -93,7 +90,7 @@ class Task extends Component {
       case "quantity":
         formErrors.quantity = isNaN(value) ? "np. 1100.90" : "";
         break;
-      case "type":
+      case "metalType":
         formErrors.metalType = this.state.possibleTypes.includes(value)
           ? ""
           : "Brak takiego rodzaju";
@@ -118,14 +115,13 @@ class Task extends Component {
     // Przepuszczenie lub zatrzymanie formularza w zaleznosci jego poprawnosci
     if (formValid(this.state)) {
       this.setState(prevState => {
-        const newTaskEntry = prevState.enteredTask;
-        let tasksList = prevState.tasks;
-        tasksList.unshift(newTaskEntry);
+        // Przeslanie do Workplace zatwierdzonego zadania
+        this.props.handleTransfer(prevState.enteredTask);
         return {
-          tasks: tasksList,
           // Wyczyszczenie pol formularza z wprowadzonych danych
           enteredTask: {
             ...prevState.enteredTask,
+            // Aktualizacja daty
             actionDate: getFormattedDate(),
             comment: "",
             expense: "",
@@ -133,7 +129,18 @@ class Task extends Component {
           }
         };
       });
-      this.props.handleTransfer(this.state.tasks);
+
+      fetch("http://localhost:3001/tasks", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          firstParam: "yourValue",
+          secondParam: "yourOtherValue"
+        })
+      });
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }

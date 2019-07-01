@@ -1,6 +1,7 @@
 import React from "react";
 
 function TasksList(props) {
+  console.log(props.tasks);
   // Odczytanie zadan z tablicy
   const newTask = props.tasks.map(item => (
     <div key={item.actionDate} className="task-list">

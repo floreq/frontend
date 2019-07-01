@@ -31,22 +31,27 @@ class Workplace extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/tasks")
+    fetch("http://localhost:3001/tasks")
       .then(response => response.json())
       .then(response => {
-        console.log(response);
+        //console.log(response);
         this.setState({ tasks: response });
       });
   }
 
   handleTransfer(element) {
-    this.setState({
-      tasks: element
+    this.setState(prevState => {
+      const newTaskEntry = element;
+      const tasksList = prevState.tasks;
+      tasksList.unshift(newTaskEntry);
+      return {
+        tasks: tasksList
+      };
     });
   }
 
   render() {
-    console.log(this.props.match.params.id);
+    //console.log(this.props.match.params.id);
     return (
       <div>
         <Task

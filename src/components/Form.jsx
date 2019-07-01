@@ -28,17 +28,17 @@ function Form(props) {
       <h4>Rodzaj złomu</h4>
       <select
         className={props.formErrors.metalType.length > 0 ? "error" : null}
-        name="type"
+        name="metalType"
         // Jesli sie nie zmienilo opcji, wartosc zostawala pusta
         value={
           props.enteredTask.metalType === ""
-            ? (props.enteredTask.metalType = "St")
+            ? (props.enteredTask.metalType = "stalowy")
             : props.enteredTask.metalType
         }
         onChange={props.handleChange}
       >
-        <option value="St">Stalowy</option>
-        <option value="Kl">Kolorowy</option>
+        <option value="stalowy">Stalowy</option>
+        <option value="kolorowy">Kolorowy</option>
       </select>
       {fError.metalType.length > 0 && (
         <span className="error-message">{fError.metalType}</span>
