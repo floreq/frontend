@@ -13,7 +13,7 @@ function TaskLogList(props) {
       </td>
       <td>
         <h4>Komentarz</h4>
-        {item.comment === "" ? "Brak" : item.comment}
+        {item.comment === "" ? "-" : item.comment}
       </td>
       <td>
         <h4>Kwota</h4>
@@ -21,11 +21,11 @@ function TaskLogList(props) {
       </td>
       <td>
         <h4>Ilość</h4>
-        {`${item.quantity} kg`}
+        {item.quantity === "" ? "-" : `${item.quantity} kg`}
       </td>
       <td>
         <h4>Rodzaj materiału</h4>
-        {item.metalType}
+        {item.metalType === "" ? "-" : item.metalType}
       </td>
       <td>
         <h4>Gdzie</h4>

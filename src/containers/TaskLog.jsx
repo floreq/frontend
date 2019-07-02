@@ -15,25 +15,25 @@ class TaskLog extends Component {
           actionDate: "21.09.2019",
           task: "Zakup",
           comment: "",
-          expense: "201012",
+          expense: "2000",
           quantity: "3200",
           metalType: "Kolorwoy",
           extended: true
         },
         {
           actionDate: "22.09.2019",
-          task: "Zakup",
+          task: "Zaliczka",
           comment: "",
-          expense: "20",
-          quantity: "3",
-          metalType: "Stalowy",
+          expense: "2000",
+          quantity: "",
+          metalType: "",
           extended: true
         },
         {
           actionDate: "23.09.2019",
           task: "Zakup",
           comment: "",
-          expense: "21230000010",
+          expense: "2123",
           quantity: "320",
           metalType: "Stalowy",
           extended: true
