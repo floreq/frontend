@@ -24,30 +24,8 @@ class Workplace extends Component {
           shortname: "Kl",
           value: "231,120"
         }
-      ],
-      tasks: []
+      ]
     };
-    this.handleTransfer = this.handleTransfer.bind(this);
-  }
-
-  componentDidMount() {
-    fetch("http://localhost:3001/tasks")
-      .then(response => response.json())
-      .then(response => {
-        //console.log(response);
-        this.setState({ tasks: response });
-      });
-  }
-
-  handleTransfer(element) {
-    this.setState(prevState => {
-      const newTaskEntry = element;
-      const tasksList = prevState.tasks;
-      tasksList.unshift(newTaskEntry);
-      return {
-        tasks: tasksList
-      };
-    });
   }
 
   render() {
@@ -57,6 +35,7 @@ class Workplace extends Component {
         <Task
           workplaceName={this.state.workplaceName}
           handleTransfer={this.handleTransfer}
+          postRequest={this.props.postRequest}
         />
         <div className="two-diffrent-columns">
           <div>
@@ -66,7 +45,7 @@ class Workplace extends Component {
           <div>
             <TasksList
               workplaceName={this.state.workplaceName}
-              tasks={this.state.tasks}
+              tasks={this.props.tasks}
             />
             <CashStatus />
           </div>

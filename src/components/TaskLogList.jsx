@@ -2,7 +2,7 @@ import React from "react";
 
 function TaskLogList(props) {
   const logEntry = props.tasks.map(item => (
-    <tr key={item.actionDate}>
+    <tr key={item.id}>
       <td>
         <h4>W dniu</h4>
         {item.actionDate}

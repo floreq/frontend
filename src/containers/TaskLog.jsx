@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   selectDayPeriod,
   selectDescendingOrAscending,
@@ -6,53 +6,18 @@ import {
 } from "../components/SortingTypes";
 import TaskLogList from "../components/TaskLogList";
 
-class TaskLog extends Component {
-  constructor() {
-    super();
-    this.state = {
-      tasks: [
-        {
-          actionDate: "21.09.2019",
-          task: "Zakup",
-          comment: "",
-          expense: "2000",
-          quantity: "3200",
-          metalType: "Kolorwoy",
-          extended: true
-        },
-        {
-          actionDate: "22.09.2019",
-          task: "Zaliczka",
-          comment: "",
-          expense: "2000",
-          quantity: "",
-          metalType: "",
-          extended: true
-        },
-        {
-          actionDate: "23.09.2019",
-          task: "Zakup",
-          comment: "",
-          expense: "2123",
-          quantity: "320",
-          metalType: "Stalowy",
-          extended: true
-        }
-      ]
-    };
-  }
-  render() {
-    return (
-      <div>
-        <div className="component">
-          {selectDayPeriod}
-          {selectDescendingOrAscending("dni")}
-          {selectLocation}
-        </div>
-        <TaskLogList tasks={this.state.tasks} />
+function TaskLog(props) {
+  console.log(props.tasks);
+  return (
+    <div>
+      <div className="component">
+        {selectDayPeriod}
+        {selectDescendingOrAscending("dni")}
+        {selectLocation}
       </div>
-    );
-  }
+      <TaskLogList tasks={props.tasks} />
+    </div>
+  );
 }
 
 export default TaskLog;

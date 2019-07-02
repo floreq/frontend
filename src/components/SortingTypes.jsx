@@ -7,7 +7,7 @@ export const selectDayPeriod = (
   </select>
 );
 
-// w wartosci what, np. Malejaco (dni)
+// W wartosci what, np. Malejaco (dni)
 export const selectDescendingOrAscending = what => (
   <select className="sorting">
     <option value="">Malejąco ({what})</option>

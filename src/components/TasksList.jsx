@@ -1,10 +1,9 @@
 import React from "react";
 
 function TasksList(props) {
-  console.log(props.tasks);
   // Odczytanie zadan z tablicy
   const newTask = props.tasks.map(item => (
-    <div key={item.actionDate} className="task-list">
+    <div key={item.id} className="task-list">
       <div>
         <span>{`${item.expense} zł`}</span>
         <h4>{item.actionDate}</h4>
@@ -13,7 +12,7 @@ function TasksList(props) {
         <span className="border-right">
           {item.quantity === "" ? "" : item.quantity + " kg"}
         </span>
-        <h4 className="orange">{item.metalType}</h4>
+        <h4 className="orange">{item.metalType === "stalowy" ? "St" : "Kl"}</h4>
       </div>
     </div>
   ));

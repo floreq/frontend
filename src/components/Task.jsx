@@ -110,13 +110,14 @@ class Task extends Component {
 
   // Dodanie zadania do listy wszystkich zadan
   handleSubmit(event) {
+    // Usuniecie domyslnego zachowania przycisku submit w formularzy (zapobiega odswiezeniu strony)
     event.preventDefault();
 
-    // Przepuszczenie lub zatrzymanie formularza w zaleznosci jego poprawnosci
+    // Przepuszczenie lub zatrzymanie formularza w zaleznosci od jego poprawnosci
     if (formValid(this.state)) {
       this.setState(prevState => {
-        // Przeslanie do Workplace zatwierdzonego zadania
-        this.props.handleTransfer(prevState.enteredTask);
+        // Przeslanie przez Workplace do Wrappera zatwierdzonego zadania
+        this.props.postRequest(prevState.enteredTask);
         return {
           // Wyczyszczenie pol formularza z wprowadzonych danych
           enteredTask: {
@@ -128,18 +129,6 @@ class Task extends Component {
             quantity: ""
           }
         };
-      });
-
-      fetch("http://localhost:3001/tasks", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          firstParam: "yourValue",
-          secondParam: "yourOtherValue"
-        })
       });
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
