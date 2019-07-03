@@ -96,6 +96,10 @@ label {
   color: $error;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 footer {
   color: $color__footer;
 }

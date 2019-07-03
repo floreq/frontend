@@ -7,11 +7,11 @@ function TaskLogList(props) {
         <h4>W dniu</h4>
         {item.actionDate}
       </td>
-      <td>
+      <td className="capitalize">
         <h4>Zadanie</h4>
         {item.task}
       </td>
-      <td>
+      <td className="capitalize">
         <h4>Komentarz</h4>
         {item.comment === "" ? "-" : item.comment}
       </td>
@@ -23,7 +23,7 @@ function TaskLogList(props) {
         <h4>Ilość</h4>
         {item.quantity === "" ? "-" : `${item.quantity} kg`}
       </td>
-      <td>
+      <td className="capitalize">
         <h4>Rodzaj materiału</h4>
         {item.metalType === "" ? "-" : item.metalType}
       </td>
