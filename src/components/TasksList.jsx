@@ -3,16 +3,21 @@ import React from "react";
 function TasksList(props) {
   // Odczytanie zadan z tablicy
   const newTask = props.tasks.map(item => (
-    <div key={item.id} className="task-list">
+    <div
+      key={item.id}
+      className={item.deletedAt != null ? "task-list strike" : "task-list"}
+    >
       <div>
         <span>{`${item.expense} zł`}</span>
-        <h4>{item.actionDate}</h4>
+        <h4>{item.deletedAt != null ? "Anulowano" : item.actionDate}</h4>
       </div>
       <div className="task-description">
         <span className="border-right">
           {item.quantity === "" ? "" : item.quantity + " kg"}
         </span>
-        <h4 className="orange">{item.metalType === "stalowy" ? "St" : "Kl"}</h4>
+        <h4 className={item.deletedAt != null ? null : "orange"}>
+          {item.metalType === "stalowy" ? "St" : "Kl"}
+        </h4>
       </div>
     </div>
   ));

@@ -51,7 +51,6 @@ h4 {
   font-size: $font-size__m;
   h4 {
     margin: 0;
-    margin-top: $margin__smallest;
   }
 }
 
@@ -107,4 +106,18 @@ label {
 
 footer {
   color: $color__footer;
+}
+
+.strike {
+  color: $gray;
+  position: relative;
+}
+.strike::before {
+  content: "";
+  border-bottom: $border;
+  border-color: $gray;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 25%;
 }
