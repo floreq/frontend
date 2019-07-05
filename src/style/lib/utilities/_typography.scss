@@ -61,6 +61,7 @@ table {
       margin: 0;
     }
     .cancel {
+      font-size: $font-size__s;
       text-align: right;
     }
   }
@@ -98,6 +99,10 @@ label {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.canceled {
+  color: $gray;
 }
 
 footer {

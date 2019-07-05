@@ -15,7 +15,7 @@ function TaskLog(props) {
         {selectDescendingOrAscending("dni")}
         {selectLocation}
       </div>
-      <TaskLogList tasks={props.tasks} />
+      <TaskLogList tasks={props.tasks} deleteRequest={props.deleteRequest} />
     </div>
   );
 }

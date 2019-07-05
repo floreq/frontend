@@ -26,6 +26,15 @@ class Wrapper extends Component {
           .then(response => {
             this.setState({ tasks: response });
           });
+      },
+      deleteRequest: id => {
+        fetch(`http://localhost:3001/tasks/${id}`, {
+          method: "DELETE"
+        })
+          .then(response => response.json())
+          .then(response => {
+            this.setState({ tasks: response });
+          });
       }
     };
   }
@@ -53,13 +62,16 @@ class Wrapper extends Component {
               />
             )}
           />
-          {/* <Route path="/workplace/:id" component={Workplace} /> */}
           <Route exact path="/" component={Summary} />
           <Route
             path="/task-log"
-            render={() => <TaskLog tasks={this.state.tasks} />}
+            render={() => (
+              <TaskLog
+                tasks={this.state.tasks}
+                deleteRequest={this.state.deleteRequest}
+              />
+            )}
           />
-          {/* <Route path="/task-log" component={TaskLog} /> */}
           <Route path="*" component={ErrorNotFound} />
         </Switch>
         <Footer />

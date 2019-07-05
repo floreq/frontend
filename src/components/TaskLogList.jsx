@@ -1,8 +1,12 @@
 import React from "react";
+import {
+  getFormattedDate,
+  getFormattedTime
+} from "../scripts/getFormattedDate";
 
 function TaskLogList(props) {
   const logEntry = props.tasks.map(item => (
-    <tr key={item.id}>
+    <tr key={item.id} className={item.deletedAt != null ? "canceled" : null}>
       <td>
         <h4>W dniu</h4>
         {item.actionDate}
@@ -32,7 +36,23 @@ function TaskLogList(props) {
         Sklep 1
       </td>
       <td className="cancel">
-        <button>Anuluj</button>
+        {item.deletedAt === null ? (
+          <button
+            onClick={() => {
+              props.deleteRequest(item.id);
+            }}
+          >
+            Anuluj
+          </button>
+        ) : (
+          <div>
+            Anulowano
+            <br />
+            {`${getFormattedDate(item.deletedAt)}, ${getFormattedTime(
+              item.deletedAt
+            )}`}
+          </div>
+        )}
       </td>
     </tr>
   ));
