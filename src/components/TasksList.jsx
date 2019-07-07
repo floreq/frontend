@@ -32,10 +32,10 @@ class TasksList extends Component {
       return (
         <div
           key={item.id}
+          style={hidenStyle}
           className={
             item.deletedAt != null ? "task-list canceled" : "task-list"
           }
-          style={hidenStyle}
         >
           <div>
             <span>{`${item.expense} zł`}</span>
@@ -62,7 +62,7 @@ class TasksList extends Component {
         {newTask.length !== 0 ? (
           <h4 className="more orange">
             <button onClick={this.handleShowMore}>
-              {this.state.ifShowAll ? "MNIEJ" : "WIĘCEJ"}
+              {this.state.ifShowMore ? "MNIEJ" : "WIĘCEJ"}
             </button>
           </h4>
         ) : null}
