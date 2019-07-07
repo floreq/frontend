@@ -104,20 +104,11 @@ label {
   color: $gray;
 }
 
-footer {
-  color: $color__footer;
+.more {
+  text-align: center;
+  margin-bottom: 0 !important;
 }
 
-.strike {
-  color: $gray;
-  position: relative;
-}
-.strike::before {
-  content: "";
-  border-bottom: $border;
-  border-color: $gray;
-  width: 100%;
-  position: absolute;
-  right: 0;
-  top: 25%;
+footer {
+  color: $color__footer;
 }

@@ -1,35 +1,74 @@
-import React from "react";
+import React, { Component } from "react";
 
-function TasksList(props) {
-  // Odczytanie zadan z tablicy
-  const newTask = props.tasks.map(item => (
-    <div
-      key={item.id}
-      className={item.deletedAt != null ? "task-list strike" : "task-list"}
-    >
-      <div>
-        <span>{`${item.expense} zł`}</span>
-        <h4>{item.deletedAt != null ? "Anulowano" : item.actionDate}</h4>
+class TasksList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ifShowMore: false
+    };
+
+    this.handleShowMore = this.handleShowMore.bind(this);
+  }
+
+  handleShowMore() {
+    this.setState(prevState => {
+      const newValue = (prevState.ifShowMore = !prevState.ifShowMore);
+      return {
+        ifShowMore: newValue
+      };
+    });
+  }
+
+  render() {
+    // Odczytanie 5 zadan z tablicy
+    const newTask = this.props.tasks.slice(0, 5).map((item, index = 0) => {
+      // Zliczanie ilosci wypisanych wierszy
+      index++;
+      // Ukrywanie/pokazywanie elementow zaleznie od liosci (index) i staun przycisku (ifShowMore)
+      const hidenStyle = {};
+      if (index > 3 && !this.state.ifShowMore) {
+        hidenStyle.display = "none";
+      }
+      return (
+        <div
+          key={item.id}
+          className={
+            item.deletedAt != null ? "task-list canceled" : "task-list"
+          }
+          style={hidenStyle}
+        >
+          <div>
+            <span>{`${item.expense} zł`}</span>
+            <h4>{item.deletedAt != null ? "Anulowano" : item.actionDate}</h4>
+          </div>
+          <div className="task-description">
+            <span className="border-right">
+              {item.quantity === "" ? "" : item.quantity + " kg"}
+            </span>
+            <h4 className={item.deletedAt != null ? null : "orange"}>
+              {item.metalType === "stalowy" ? "St" : "Kl"}
+            </h4>
+          </div>
+        </div>
+      );
+    });
+    return (
+      <div className="border component">
+        <div className="border-title">
+          <h2>Ostatnie zlecenia</h2>
+          <h4>{this.props.workplaceName}</h4>
+        </div>
+        {newTask.length === 0 ? "Brak dokonanych zleceń" : newTask}
+        {newTask.length !== 0 ? (
+          <h4 className="more orange">
+            <button onClick={this.handleShowMore}>
+              {this.state.ifShowAll ? "MNIEJ" : "WIĘCEJ"}
+            </button>
+          </h4>
+        ) : null}
       </div>
-      <div className="task-description">
-        <span className="border-right">
-          {item.quantity === "" ? "" : item.quantity + " kg"}
-        </span>
-        <h4 className={item.deletedAt != null ? null : "orange"}>
-          {item.metalType === "stalowy" ? "St" : "Kl"}
-        </h4>
-      </div>
-    </div>
-  ));
-  return (
-    <div className="border component">
-      <div className="border-title">
-        <h2>Ostatnie zlecenia</h2>
-        <h4>{props.workplaceName}</h4>
-      </div>
-      {newTask.length === 0 ? "Brak dokonanych zleceń" : newTask}
-    </div>
-  );
+    );
+  }
 }
 
 export default TasksList;
