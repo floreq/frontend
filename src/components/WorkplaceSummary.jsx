@@ -90,6 +90,16 @@ class WorkplaceSummary extends Component {
         <div className="border summary component">
           <div className="two-diffrent-columns-reverse">
             <div>
+              <h3>Średnia</h3>
+              <h4>Ilość przez kwota</h4>
+            </div>
+            <AreaChart
+              options={chartWithBorder.options}
+              data={this.state.stockData.data}
+            />
+          </div>
+          <div className="two-diffrent-columns-reverse">
+            <div>
               <h3>Zaliczka</h3>
               {selectDayPeriod}
             </div>
