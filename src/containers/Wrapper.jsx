@@ -24,7 +24,12 @@ class Wrapper extends Component {
         })
           .then(response => response.json())
           .then(response => {
-            this.setState({ tasks: response });
+            this.setState(prevState => {
+              const updatedTasks = response.concat(prevState.tasks);
+              return {
+                tasks: updatedTasks
+              };
+            });
           });
       },
       deleteRequest: id => {
@@ -42,9 +47,18 @@ class Wrapper extends Component {
   componentDidMount() {
     // Pobranie danych z backendy
     fetch("http://localhost:3001/tasks")
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
       .then(response => response.json())
       .then(response => {
         this.setState({ tasks: response });
+      })
+      .catch(err => {
+        console.error(err);
       });
   }
 

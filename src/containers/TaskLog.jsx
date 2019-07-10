@@ -7,7 +7,6 @@ import {
 import TaskLogList from "../components/TaskLogList";
 
 function TaskLog(props) {
-  console.log(props.tasks);
   return (
     <div>
       <div className="component">

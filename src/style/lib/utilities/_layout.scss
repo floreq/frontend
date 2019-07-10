@@ -109,29 +109,6 @@ hr,
   }
 }
 
-// .task-log {
-//   list-style-type: none;
-//   margin: 0;
-//   padding: 0;
-//   li {
-//     display: grid;
-//     grid-template-columns: repeat(8, auto);
-//     padding-bottom: $margin__big;
-//     margin: $margin__big 0;
-//     border-bottom: $border;
-//     .cancel {
-//       grid-column: 8;
-//       align-self: center;
-//       justify-self: end;
-//     }
-//   }
-//   li:last-child {
-//     margin: 0;
-//     padding-bottom: 0;
-//     border-bottom: unset;
-//   }
-// }
-
 table {
   width: 100%;
   border-collapse: separate;
