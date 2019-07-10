@@ -29,10 +29,10 @@ class Workplace extends Component {
   }
 
   render() {
-    //console.log(this.props.match.params.id);
     return (
       <div>
         <Task
+          workplaceId={this.props.match.params.id}
           workplaceName={this.state.workplaceName}
           handleTransfer={this.handleTransfer}
           postRequest={this.props.postRequest}

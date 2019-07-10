@@ -117,7 +117,7 @@ class Task extends Component {
     if (formValid(this.state)) {
       this.setState(prevState => {
         // Przeslanie przez Workplace do Wrappera zatwierdzonego zadania
-        this.props.postRequest(prevState.enteredTask);
+        this.props.postRequest(prevState.enteredTask, this.props.workplaceId);
         return {
           // Wyczyszczenie pol formularza z wprowadzonych danych
           enteredTask: {

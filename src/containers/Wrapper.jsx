@@ -12,9 +12,11 @@ class Wrapper extends Component {
     super();
     this.state = {
       tasks: [],
+      workplaces: [],
       // Funkcja umozliwiajaca przeslanie wpisanego zadania
-      postRequest: enteredTask => {
-        fetch("http://localhost:3001/tasks", {
+      postRequest: (enteredTask, workplaceId) => {
+        console.log(workplaceId);
+        fetch(`http://localhost:3001/tasks/${workplaceId}`, {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -60,6 +62,13 @@ class Wrapper extends Component {
       .catch(err => {
         console.error(err);
       });
+
+    fetch("http://localhost:3001/workplaces")
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        //this.setState({ tasks: response });
+      });
   }
 
   render() {
@@ -69,8 +78,9 @@ class Wrapper extends Component {
         <Switch>
           <Route
             path="/workplace/:id"
-            render={() => (
+            render={props => (
               <Workplace
+                {...props} // Przekazanie wartosci /:id
                 tasks={this.state.tasks}
                 postRequest={this.state.postRequest}
               />
