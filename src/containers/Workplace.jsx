@@ -28,6 +28,10 @@ class Workplace extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.workplaceRequest(this.props.match.params.id);
+  }
+
   render() {
     return (
       <div>

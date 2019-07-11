@@ -15,7 +15,6 @@ class Wrapper extends Component {
       workplaces: [],
       // Funkcja umozliwiajaca przeslanie wpisanego zadania
       postRequest: (enteredTask, workplaceId) => {
-        console.log(workplaceId);
         fetch(`http://localhost:3001/tasks/${workplaceId}`, {
           method: "POST",
           headers: {
@@ -28,6 +27,7 @@ class Wrapper extends Component {
           .then(response => {
             this.setState(prevState => {
               const updatedTasks = response.concat(prevState.tasks);
+              console.log(workplaceId);
               return {
                 tasks: updatedTasks
               };
@@ -41,6 +41,18 @@ class Wrapper extends Component {
           .then(response => response.json())
           .then(response => {
             this.setState({ tasks: response });
+          });
+      },
+      workplaceRequest: id => {
+        fetch(`http://localhost:3001/workplaces/${id}`, {
+          method: "GET"
+        })
+          .then(response => response.json())
+          .then(response => {
+            this.setState(prevState => {
+              prevState.workplaces[id - 1] = response;
+              return { workplaces: prevState.workplaces };
+            });
           });
       }
     };
@@ -62,16 +74,10 @@ class Wrapper extends Component {
       .catch(err => {
         console.error(err);
       });
-
-    fetch("http://localhost:3001/workplaces")
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        //this.setState({ tasks: response });
-      });
   }
 
   render() {
+    console.log(this.state.workplaces);
     return (
       <Router>
         <Navbar />
@@ -83,6 +89,7 @@ class Wrapper extends Component {
                 {...props} // Przekazanie wartosci /:id
                 tasks={this.state.tasks}
                 postRequest={this.state.postRequest}
+                workplaceRequest={this.state.workplaceRequest}
               />
             )}
           />

@@ -33,7 +33,7 @@ function TaskLogList(props) {
       </td>
       <td>
         <h4>Gdzie</h4>
-        Sklep 1
+        {item.originId}
       </td>
       <td className="cancel">
         {item.deletedAt === null ? (
