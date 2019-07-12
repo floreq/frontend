@@ -20,8 +20,12 @@ class TasksList extends Component {
   }
 
   render() {
+    // Wybranie tylko tasks z odpowiednim originId
+    const newFilteredTasks = this.props.tasks.filter(f => {
+      return f.originId === Number(this.props.workplaceId);
+    });
     // Odczytanie 5 zadan z tablicy
-    const newTask = this.props.tasks.slice(0, 5).map((item, index = 0) => {
+    const newTasks = newFilteredTasks.slice(0, 5).map((item, index = 0) => {
       // Zliczanie ilosci wypisanych wierszy
       index++;
       // Ukrywanie/pokazywanie elementow zaleznie od liosci (index) i staun przycisku (ifShowMore)
@@ -58,8 +62,8 @@ class TasksList extends Component {
           <h2>Ostatnie zlecenia</h2>
           <h4>{this.props.workplaceName}</h4>
         </div>
-        {newTask.length === 0 ? "Brak dokonanych zleceń" : newTask}
-        {newTask.length !== 0 ? (
+        {newTasks.length === 0 ? "Brak dokonanych zleceń" : newTasks}
+        {newTasks.length !== 0 ? (
           <h4 className="more orange">
             <button onClick={this.handleShowMore}>
               {this.state.ifShowMore ? "MNIEJ" : "WIĘCEJ"}

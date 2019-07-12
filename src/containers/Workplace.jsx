@@ -48,6 +48,7 @@ class Workplace extends Component {
           </div>
           <div>
             <TasksList
+              workplaceId={this.props.match.params.id}
               workplaceName={this.state.workplaceName}
               tasks={this.props.tasks}
             />
