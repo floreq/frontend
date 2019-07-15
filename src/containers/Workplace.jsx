@@ -33,6 +33,11 @@ class Workplace extends Component {
   }
 
   render() {
+    // console.log(this.props.match.params.id);
+    // Odebranie odpowiednich danych z tablicy
+    const workplaceData = this.props.workplaceData[
+      this.props.match.params.id - 1
+    ];
     return (
       <div>
         <Task
@@ -43,7 +48,11 @@ class Workplace extends Component {
         />
         <div className="two-diffrent-columns">
           <div>
-            <Stock stock={this.state.stock} />
+            <Stock
+              stock={
+                workplaceData !== undefined ? workplaceData.metalIncome : []
+              }
+            />
             <WorkplaceSummary />
           </div>
           <div>

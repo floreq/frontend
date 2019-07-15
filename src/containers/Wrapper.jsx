@@ -32,6 +32,18 @@ class Wrapper extends Component {
                 tasks: updatedTasks
               };
             });
+          })
+          .then(() => {
+            fetch(`http://localhost:3001/workplaces/${workplaceId}`, {
+              method: "GET"
+            })
+              .then(response => response.json())
+              .then(response => {
+                this.setState(prevState => {
+                  prevState.workplaces[workplaceId - 1] = response;
+                  return { workplaces: prevState.workplaces };
+                });
+              });
           });
       },
       deleteRequest: id => {
@@ -77,7 +89,6 @@ class Wrapper extends Component {
   }
 
   render() {
-    console.log(this.state.workplaces);
     return (
       <Router>
         <Navbar />
@@ -90,6 +101,7 @@ class Wrapper extends Component {
                 tasks={this.state.tasks}
                 postRequest={this.state.postRequest}
                 workplaceRequest={this.state.workplaceRequest}
+                workplaceData={this.state.workplaces}
               />
             )}
           />

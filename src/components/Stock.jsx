@@ -1,15 +1,30 @@
 import React from "react";
 
 function Stock(props) {
+  const nameScheme = {
+    stalowy: "Złom stalowy",
+    stalowyShort: "St",
+    kolorowy: "Metal kolorowy",
+    kolorowyShort: "Kl",
+    default: "Błąd"
+  };
   // Pobranie i rozmieszczenie danych z tablicy
   const elements = props.stock.map(item => {
     return (
-      <div key={item.id} className="border stock">
+      <div key={item.metalTypeName} className="border stock">
         <div>
-          <h4 className="orange">{item.shortname}</h4>
-          <h3>{item.name}</h3>
+          <h4 className="orange">
+            {nameScheme[item.metalTypeName + "Short"] !== undefined
+              ? nameScheme[item.metalTypeName + "Short"]
+              : nameScheme.default}
+          </h4>
+          <h3>
+            {nameScheme[item.metalTypeName] !== undefined
+              ? nameScheme[item.metalTypeName]
+              : nameScheme.default}
+          </h3>
         </div>
-        <h3 className="non-bold">{`${item.value} t`}</h3>
+        <h3 className="non-bold">{`${item.sumMetalIncome / 1000} t`}</h3>
       </div>
     );
   });
