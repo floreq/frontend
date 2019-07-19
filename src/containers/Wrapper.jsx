@@ -27,7 +27,6 @@ class Wrapper extends Component {
           .then(response => {
             this.setState(prevState => {
               const updatedTasks = response.concat(prevState.tasks);
-              console.log(workplaceId);
               return {
                 tasks: updatedTasks
               };
@@ -91,7 +90,7 @@ class Wrapper extends Component {
   render() {
     return (
       <Router>
-        <Navbar />
+        <Navbar workplaceRequest={this.state.workplaceRequest} />
         <Switch>
           <Route
             path="/workplace/:id"

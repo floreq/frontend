@@ -3,8 +3,8 @@ import { simpleChart } from "./../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
 
 class CashStatus extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       // Dane potrzebne do wyswietlenia poprawnie wykresow
       data: {
@@ -31,19 +31,22 @@ class CashStatus extends Component {
               <h4>Obecnie</h4>
             </div>
             <div className="align-right">
-              <h2>12345,10 zł</h2>
-              <h4>+ 1230,00 zł</h4>
+              <h2>
+                {this.props.sumIncome - this.props.sumExpense < 0
+                  ? `- ${-(this.props.sumIncome - this.props.sumExpense)}`
+                  : this.props.sumIncome - this.props.sumExpense}{" "}
+                zł
+              </h2>
             </div>
           </div>
           <AreaChart options={simpleChart.options} data={this.state.data} />
           <div className="border-title-extended border-top">
             <div>
               <h2>Wydatki</h2>
-              <h4>Tygodniowo</h4>
+              <h4>Ostatnie 7 dni</h4>
             </div>
             <div className="align-right">
-              <h2>- 6012,90 zł</h2>
-              <h4>- 120,90 zł</h4>
+              <h2>- {this.props.sumExpenseLast7Days} zł</h2>
             </div>
           </div>
           <AreaChart options={simpleChart.options} data={this.state.data} />
