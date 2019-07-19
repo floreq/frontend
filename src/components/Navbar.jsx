@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import User from "./User";
 
-function Navbar() {
+function Navbar(props) {
+  //console.log(this.props.workplaceRequest);
   return (
     <React.Fragment>
       <nav>
@@ -19,13 +20,28 @@ function Navbar() {
         <div>
           <ul>
             <li>
-              <NavLink to="/workplace/1">Sklep 1</NavLink>
+              <NavLink
+                to="/workplace/1"
+                onClick={() => props.workplaceRequest(1)}
+              >
+                Sklep 1
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/workplace/2">Sklep 2</NavLink>
+              <NavLink
+                to="/workplace/2"
+                onClick={() => props.workplaceRequest(2)}
+              >
+                Sklep 2
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/workplace/3">Sklep 3</NavLink>
+              <NavLink
+                to="/workplace/3"
+                onClick={() => props.workplaceRequest(3)}
+              >
+                Sklep 3
+              </NavLink>
             </li>
           </ul>
           <User />
