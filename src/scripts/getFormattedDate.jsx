@@ -12,6 +12,17 @@ export const getFormattedDate = d => {
   return `${day}.${m}.${year}`;
 };
 
+export const getFormattedDay = d => {
+  if (d === undefined) {
+    d = new Date();
+  } else {
+    d = new Date(d);
+  }
+  // Dodanie 0 przed jednocyfrowym dniem
+  const day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+  return `${day}`;
+};
+
 export const getFormattedTime = h => {
   if (h === undefined) {
     h = new Date();

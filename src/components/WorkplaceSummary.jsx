@@ -3,28 +3,17 @@ import { chartWithBorder } from "../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
 import BarChart from "./BarChart";
 import { selectDayPeriod } from "./SortingTypes";
+import { chartDataSample } from "../scripts/chartDataSample";
+import { newChartLabeling } from "../scripts/newChartLabeling";
 
 class WorkplaceSummary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       // Dane potrzebne do wyswietlenia poprawnie wykresow
       stockData: {
         data: {
-          labels: [
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16"
-          ],
+          labels: newChartLabeling(0, 12),
           datasets: [
             // Wykres pierwszy
             {
@@ -38,20 +27,7 @@ class WorkplaceSummary extends Component {
       },
       barChart: {
         data: {
-          labels: [
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16"
-          ],
+          labels: newChartLabeling(12),
           datasets: [
             {
               label: "Stan kasy",
@@ -68,6 +44,18 @@ class WorkplaceSummary extends Component {
     };
   }
   render() {
+    // Ustawic limit wyswietlanych dni!!!
+    // console.log(this.props.stockByDays);
+    // console.log(
+    //   "Stalowy",
+    //   this.props.stockByDays
+    //     .filter(item => item.metalTypeName === "stalowy")
+    //     .map(v => {
+    //       return v.sumMetalInStock;
+    //     })
+    // );
+    newChartLabeling(this.props.stockByDays, 12);
+    //console.log(chartDataSample(this.props.stockByDays, 12));
     return (
       <div className="component">
         <h4>Podsumowanie</h4>
@@ -76,6 +64,13 @@ class WorkplaceSummary extends Component {
             <h3>Złom stalowy</h3>
             <AreaChart
               options={chartWithBorder.options}
+              // data={chartDataSample(
+              //   this.props.stockByDays
+              //     .filter(item => item.metalTypeName === "stalowy")
+              //     .map(v => {
+              //       return v.sumMetalInStock;
+              //     })
+              // )}
               data={this.state.stockData.data}
             />
           </div>

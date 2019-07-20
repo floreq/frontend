@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { simpleChart } from "./../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
+import { newChartLabeling } from "../scripts/newChartLabeling";
 
 class CashStatus extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class CashStatus extends Component {
     this.state = {
       // Dane potrzebne do wyswietlenia poprawnie wykresow
       data: {
-        labels: ["05", "06", "07", "08", "09", "10"],
+        labels: newChartLabeling(7),
         datasets: [
           // Wykres pierwszy
           {
@@ -32,10 +33,9 @@ class CashStatus extends Component {
             </div>
             <div className="align-right">
               <h2>
-                {this.props.sumIncome - this.props.sumExpense < 0
-                  ? `- ${-(this.props.sumIncome - this.props.sumExpense)}`
-                  : this.props.sumIncome - this.props.sumExpense}{" "}
-                zł
+                {this.props.cashStatus < 0
+                  ? `- ${-this.props.cashStatus} zł`
+                  : `${this.props.cashStatus} zł`}
               </h2>
             </div>
           </div>
