@@ -3,7 +3,7 @@ import { chartWithBorder } from "../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
 import BarChart from "./BarChart";
 import { selectDayPeriod } from "./SortingTypes";
-import { chartDataSample } from "../scripts/chartDataSample";
+import { chartDataGenerator } from "../scripts/chartDataGenerator";
 import { newChartLabeling } from "../scripts/newChartLabeling";
 
 class WorkplaceSummary extends Component {
@@ -13,7 +13,7 @@ class WorkplaceSummary extends Component {
       // Dane potrzebne do wyswietlenia poprawnie wykresow
       stockData: {
         data: {
-          labels: newChartLabeling(0, 12),
+          labels: newChartLabeling(12)[0],
           datasets: [
             // Wykres pierwszy
             {
@@ -27,7 +27,7 @@ class WorkplaceSummary extends Component {
       },
       barChart: {
         data: {
-          labels: newChartLabeling(12),
+          labels: newChartLabeling(12)[0],
           datasets: [
             {
               label: "Stan kasy",
@@ -44,18 +44,10 @@ class WorkplaceSummary extends Component {
     };
   }
   render() {
-    // Ustawic limit wyswietlanych dni!!!
-    // console.log(this.props.stockByDays);
-    // console.log(
-    //   "Stalowy",
-    //   this.props.stockByDays
-    //     .filter(item => item.metalTypeName === "stalowy")
-    //     .map(v => {
-    //       return v.sumMetalInStock;
-    //     })
-    // );
-    newChartLabeling(this.props.stockByDays, 12);
-    //console.log(chartDataSample(this.props.stockByDays, 12));
+    console.log(
+      this.props.stock.filter(i => i.metalTypeName === "stalowy")[0]
+        .sumMetalIncome
+    );
     return (
       <div className="component">
         <h4>Podsumowanie</h4>
@@ -64,21 +56,30 @@ class WorkplaceSummary extends Component {
             <h3>Złom stalowy</h3>
             <AreaChart
               options={chartWithBorder.options}
-              // data={chartDataSample(
-              //   this.props.stockByDays
-              //     .filter(item => item.metalTypeName === "stalowy")
-              //     .map(v => {
-              //       return v.sumMetalInStock;
-              //     })
-              // )}
-              data={this.state.stockData.data}
+              data={chartDataGenerator(
+                this.props.stockByDays.filter(
+                  item => item.metalTypeName === "stalowy"
+                ),
+                this.props.stock.filter(i => i.metalTypeName === "stalowy")[0]
+                  .sumMetalIncome,
+                "Złom stalowy",
+                12
+              )}
             />
           </div>
           <div className="two-diffrent-columns-reverse">
             <h3>Metal kolorowy</h3>
             <AreaChart
               options={chartWithBorder.options}
-              data={this.state.stockData.data}
+              data={chartDataGenerator(
+                this.props.stockByDays.filter(
+                  item => item.metalTypeName === "kolorowy"
+                ),
+                this.props.stock.filter(i => i.metalTypeName === "kolorowy")[0]
+                  .sumMetalIncome,
+                "Metal kolorowy",
+                12
+              )}
             />
           </div>
         </div>

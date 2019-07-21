@@ -18,12 +18,12 @@ class Workplace extends Component {
           ],
           metalInStockGroupByDay: [
             {
-              action_date: "00.00.0000",
+              actionDate: "00.00.0000",
               metalTypeName: "stalowy",
               sumMetalInStock: 0
             },
             {
-              action_date: "00.00.0000",
+              actionDate: "00.00.0000",
               metalTypeName: "kolorowy",
               sumMetalInStock: 0
             }
@@ -67,6 +67,11 @@ class Workplace extends Component {
               }
             />
             <WorkplaceSummary
+              stock={
+                workplaceData !== undefined
+                  ? workplaceData.metalInStock
+                  : this.state.workplaceSampleData[0].metalInStock
+              }
               stockByDays={
                 workplaceData !== undefined
                   ? workplaceData.metalInStockGroupByDay

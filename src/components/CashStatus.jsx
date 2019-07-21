@@ -9,7 +9,7 @@ class CashStatus extends Component {
     this.state = {
       // Dane potrzebne do wyswietlenia poprawnie wykresow
       data: {
-        labels: newChartLabeling(7),
+        labels: newChartLabeling(7)[0],
         datasets: [
           // Wykres pierwszy
           {
