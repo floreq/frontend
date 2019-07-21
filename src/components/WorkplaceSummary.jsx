@@ -44,10 +44,10 @@ class WorkplaceSummary extends Component {
     };
   }
   render() {
-    console.log(
-      this.props.stock.filter(i => i.metalTypeName === "stalowy")[0]
-        .sumMetalIncome
-    );
+    // console.log(
+    //   this.props.stock.filter(i => i.metalTypeName === "stalowy")[0]
+    //     .sumMetalIncome
+    // );
     return (
       <div className="component">
         <h4>Podsumowanie</h4>
