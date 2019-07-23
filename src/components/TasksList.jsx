@@ -60,7 +60,7 @@ class TasksList extends Component {
       <div className="border component">
         <div className="border-title">
           <h2>Ostatnie zlecenia</h2>
-          <h4>{this.props.workplaceName}</h4>
+          <h4>{`${this.props.workplaceName} ${this.props.workplaceId}`}</h4>
         </div>
         {newTasks.length === 0 ? "Brak dokonanych zleceń" : newTasks}
         {newTasks.length !== 0 ? (

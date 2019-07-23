@@ -9,7 +9,7 @@ function Stock(props) {
     default: "Błąd"
   };
   // Pobranie i rozmieszczenie danych z tablicy
-  const elements = props.stock.map(item => {
+  const elements = props.workplaceData.metalInStock.map(item => {
     return (
       <div key={item.metalTypeName} className="border stock">
         <div>

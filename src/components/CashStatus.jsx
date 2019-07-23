@@ -1,59 +1,50 @@
-import React, { Component } from "react";
+import React from "react";
 import { simpleChart } from "./../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
-import { newChartLabeling } from "../scripts/newChartLabeling";
+import { chartDataGenerator } from "../scripts/chartDataGenerator";
 
-class CashStatus extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // Dane potrzebne do wyswietlenia poprawnie wykresow
-      data: {
-        labels: newChartLabeling(7)[0],
-        datasets: [
-          // Wykres pierwszy
-          {
-            label: "Stan kasy",
-            backgroundColor: "#e0fbfc",
-            borderColor: "#98c1d9",
-            data: [2000, 2122.0, 5123.0, 3001.5, 4000.2, 4000.2]
-          }
-        ]
-      }
-    };
-  }
-  render() {
-    return (
-      <div>
-        <div className="border component">
-          <div className="border-title-extended">
-            <div>
-              <h2>Stan kasy</h2>
-              <h4>Obecnie</h4>
-            </div>
-            <div className="align-right">
-              <h2>
-                {this.props.cashStatus < 0
-                  ? `- ${-this.props.cashStatus} zł`
-                  : `${this.props.cashStatus} zł`}
-              </h2>
-            </div>
+function CashStatus(props) {
+  return (
+    <div>
+      <div className="border component">
+        <div className="border-title-extended">
+          <div>
+            <h2>Stan kasy</h2>
+            <h4>Obecnie</h4>
           </div>
-          <AreaChart options={simpleChart.options} data={this.state.data} />
-          <div className="border-title-extended border-top">
-            <div>
-              <h2>Wydatki</h2>
-              <h4>Suma z ostatatnich 7 dni</h4>
-            </div>
-            <div className="align-right">
-              <h2>- {this.props.sumExpenseLast7Days} zł</h2>
-            </div>
+          <div className="align-right">
+            <h2>
+              {props.workplaceData.cashStatus < 0
+                ? `- ${-props.workplaceData.cashStatus} zł`
+                : `${props.workplaceData.cashStatus} zł`}
+            </h2>
           </div>
-          <AreaChart options={simpleChart.options} data={this.state.data} />
         </div>
+        <AreaChart
+          options={simpleChart.options}
+          data={chartDataGenerator([], "", "Wydatki", 7)}
+        />
+        <div className="border-title-extended border-top">
+          <div>
+            <h2>Wydatki</h2>
+            <h4>Suma z ostatatnich 7 dni</h4>
+          </div>
+          <div className="align-right">
+            <h2>- {props.workplaceData.sumExpenseLast7Days} zł</h2>
+          </div>
+        </div>
+        <AreaChart
+          options={simpleChart.options}
+          data={chartDataGenerator(
+            props.workplaceData.expensesGroupByDay,
+            "sumExpenses",
+            "Wydatki",
+            7
+          )}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default CashStatus;

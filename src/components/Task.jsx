@@ -139,7 +139,7 @@ class Task extends Component {
     return (
       <div className="component">
         <h4>Zlecenie</h4>
-        <h1>{this.props.workplaceName}</h1>
+        <h1>{`${this.props.workplaceName} ${this.props.workplaceId}`}</h1>
         <Form
           formErrors={this.state.formErrors}
           enteredTask={this.state.enteredTask}

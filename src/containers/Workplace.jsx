@@ -51,7 +51,7 @@ class Workplace extends Component {
         }
       ],
       id: 1,
-      workplaceName: "Sklep 1"
+      workplaceName: "Sklep"
     };
   }
 
@@ -60,7 +60,6 @@ class Workplace extends Component {
   }
 
   render() {
-    //console.log(this.props.workplaceData);
     // Odebranie odpowiednich danych z komponentu Wrapper
     const workplaceData = this.props.workplaceData[
       this.props.match.params.id - 1
@@ -76,10 +75,10 @@ class Workplace extends Component {
         <div className="two-diffrent-columns">
           <div>
             <Stock
-              stock={
+              workplaceData={
                 workplaceData !== undefined
-                  ? workplaceData.metalInStock
-                  : this.state.workplaceSampleData[0].metalInStock
+                  ? workplaceData
+                  : this.state.workplaceSampleData[0]
               }
             />
             <WorkplaceSummary
@@ -97,15 +96,10 @@ class Workplace extends Component {
               tasks={this.props.tasks}
             />
             <CashStatus
-              cashStatus={
+              workplaceData={
                 workplaceData !== undefined
-                  ? workplaceData.cashStatus
-                  : this.state.workplaceSampleData[0].cashStatus
-              }
-              sumExpenseLast7Days={
-                workplaceData !== undefined
-                  ? workplaceData.sumExpenseLast7Days
-                  : this.state.workplaceSampleData[0].sumExpenseLast7Days
+                  ? workplaceData
+                  : this.state.workplaceSampleData[0]
               }
             />
           </div>
