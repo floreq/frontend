@@ -18,11 +18,13 @@ class Workplace extends Component {
           ],
           metalInStockGroupByDay: [
             {
+              correctDateFormat: "00.00.0000",
               actionDate: "00.00.0000",
               metalTypeName: "stalowy",
               sumMetalInStock: 0
             },
             {
+              correctDateFormat: "00.00.0000",
               actionDate: "00.00.0000",
               metalTypeName: "kolorowy",
               sumMetalInStock: 0
@@ -31,7 +33,21 @@ class Workplace extends Component {
           originId: 0,
           cashStatus: 0,
           sumExpenseLast7Days: 0,
-          sumIncome: 0
+          expensesGroupByDay: [
+            {
+              actionDate: "00.00.0000",
+              sumExpenses: 0
+            }
+          ],
+          sumIncomeGroupByDay: [
+            {
+              actionDate: "00.00.0000",
+              sumExpenses: 0
+            }
+          ],
+          sumAdvancePaymentGroupByDay: [
+            { actionDate: "00.00.0000", sumAdvancePayment: 0 }
+          ]
         }
       ],
       id: 1,
@@ -67,15 +83,10 @@ class Workplace extends Component {
               }
             />
             <WorkplaceSummary
-              stock={
+              workplaceData={
                 workplaceData !== undefined
-                  ? workplaceData.metalInStock
-                  : this.state.workplaceSampleData[0].metalInStock
-              }
-              stockByDays={
-                workplaceData !== undefined
-                  ? workplaceData.metalInStockGroupByDay
-                  : this.state.workplaceSampleData[0].metalInStockGroupByDay
+                  ? workplaceData
+                  : this.state.workplaceSampleData[0]
               }
             />
           </div>

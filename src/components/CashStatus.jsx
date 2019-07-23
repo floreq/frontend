@@ -43,7 +43,7 @@ class CashStatus extends Component {
           <div className="border-title-extended border-top">
             <div>
               <h2>Wydatki</h2>
-              <h4>Ostatnie 7 dni</h4>
+              <h4>Suma z ostatatnich 7 dni</h4>
             </div>
             <div className="align-right">
               <h2>- {this.props.sumExpenseLast7Days} zł</h2>

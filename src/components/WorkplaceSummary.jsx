@@ -3,7 +3,10 @@ import { chartWithBorder } from "../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
 import BarChart from "./BarChart";
 import { selectDayPeriod } from "./SortingTypes";
-import { chartDataGenerator } from "../scripts/chartDataGenerator";
+import {
+  chartDataLinearGenerator,
+  chartDataGenerator
+} from "../scripts/chartDataGenerator";
 import { newChartLabeling } from "../scripts/newChartLabeling";
 
 class WorkplaceSummary extends Component {
@@ -44,6 +47,7 @@ class WorkplaceSummary extends Component {
     };
   }
   render() {
+    console.log(this.props.workplaceData);
     // console.log(
     //   this.props.stock.filter(i => i.metalTypeName === "stalowy")[0]
     //     .sumMetalIncome
@@ -56,12 +60,13 @@ class WorkplaceSummary extends Component {
             <h3>Złom stalowy</h3>
             <AreaChart
               options={chartWithBorder.options}
-              data={chartDataGenerator(
-                this.props.stockByDays.filter(
+              data={chartDataLinearGenerator(
+                this.props.workplaceData.metalInStockGroupByDay.filter(
                   item => item.metalTypeName === "stalowy"
                 ),
-                this.props.stock.filter(i => i.metalTypeName === "stalowy")[0]
-                  .sumMetalIncome,
+                this.props.workplaceData.metalInStock.filter(
+                  i => i.metalTypeName === "stalowy"
+                )[0].sumMetalIncome,
                 "Złom stalowy",
                 12
               )}
@@ -71,12 +76,13 @@ class WorkplaceSummary extends Component {
             <h3>Metal kolorowy</h3>
             <AreaChart
               options={chartWithBorder.options}
-              data={chartDataGenerator(
-                this.props.stockByDays.filter(
+              data={chartDataLinearGenerator(
+                this.props.workplaceData.metalInStockGroupByDay.filter(
                   item => item.metalTypeName === "kolorowy"
                 ),
-                this.props.stock.filter(i => i.metalTypeName === "kolorowy")[0]
-                  .sumMetalIncome,
+                this.props.workplaceData.metalInStock.filter(
+                  i => i.metalTypeName === "kolorowy"
+                )[0].sumMetalIncome,
                 "Metal kolorowy",
                 12
               )}
@@ -101,7 +107,14 @@ class WorkplaceSummary extends Component {
             </div>
             <BarChart
               options={chartWithBorder.options}
-              data={this.state.barChart.data}
+              data={chartDataGenerator(
+                this.props.workplaceData.sumAdvancePaymentGroupByDay,
+                "sumAdvancePayment",
+                "Zaliczka",
+                12,
+                { borderWidth: 3 }
+              )}
+              //data={this.state.barChart.data}
             />
           </div>
           <div className="two-diffrent-columns-reverse">
@@ -111,7 +124,13 @@ class WorkplaceSummary extends Component {
             </div>
             <AreaChart
               options={chartWithBorder.options}
-              data={this.state.stockData.data}
+              data={chartDataGenerator(
+                this.props.workplaceData.sumIncomeGroupByDay,
+                "sumIncome",
+                "Wpływy",
+                12
+              )}
+              //data={this.state.stockData.data}
             />
           </div>
           <div className="two-diffrent-columns-reverse">
@@ -121,7 +140,12 @@ class WorkplaceSummary extends Component {
             </div>
             <AreaChart
               options={chartWithBorder.options}
-              data={this.state.stockData.data}
+              data={chartDataGenerator(
+                this.props.workplaceData.expensesGroupByDay,
+                "sumExpenses",
+                "Wydatki",
+                12
+              )}
             />
           </div>
         </div>
