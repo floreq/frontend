@@ -21,6 +21,7 @@ function WorkplaceSummary(props) {
               props.workplaceData.metalInStockGroupByDay.filter(
                 item => item.metalTypeName === "stalowy"
               ),
+              "sumMetalInStock",
               props.workplaceData.metalInStock.filter(
                 i => i.metalTypeName === "stalowy"
               )[0].sumMetalIncome,
@@ -37,6 +38,7 @@ function WorkplaceSummary(props) {
               props.workplaceData.metalInStockGroupByDay.filter(
                 item => item.metalTypeName === "kolorowy"
               ),
+              "sumMetalInStock",
               props.workplaceData.metalInStock.filter(
                 i => i.metalTypeName === "kolorowy"
               )[0].sumMetalIncome,

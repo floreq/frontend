@@ -39,6 +39,13 @@ class Workplace extends Component {
               sumExpenses: 0
             }
           ],
+          sumCashStatusGroupByDay: [
+            {
+              correctDateFormat: "00.00.0000",
+              actionDate: "00.00.0000",
+              cashStatus: 0
+            }
+          ],
           sumIncomeGroupByDay: [
             {
               actionDate: "00.00.0000",

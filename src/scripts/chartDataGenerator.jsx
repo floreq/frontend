@@ -6,6 +6,7 @@ import { newChartLabeling } from "./newChartLabeling";
 // v (array) - tablica z danymi, actualValue (number) - aktualny stan magazynu, nameTag (string) - nazwa wykresu, numberOfLabels (number) - ilosc etykiet
 export const chartDataLinearGenerator = (
   v,
+  vName,
   actualValue,
   nameTag,
   numberOfLabels
@@ -24,7 +25,7 @@ export const chartDataLinearGenerator = (
       for (let i = 0; i < v.length; i++) {
         if (v[i].actionDate === e) {
           outcome -= prevValue;
-          prevValue = v[i].sumMetalInStock;
+          prevValue = v[i][vName];
           break;
         } else if (i === v.length - 1) {
           outcome -= prevValue;

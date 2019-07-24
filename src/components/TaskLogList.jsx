@@ -15,7 +15,7 @@ function TaskLogList(props) {
   //   props.tasks.filter(i => i.actionDate === "20.07.2019" && i.originId === 1)
   // );
   const logEntry = props.tasks.map(item => (
-    <tr key={item.id} className={item.deletedAt != null ? "canceled" : null}>
+    <tr key={item.id} className={item.deletedAt != null ? "gray" : null}>
       <td>
         <h4>W dniu</h4>
         {item.actionDate}

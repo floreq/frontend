@@ -1,7 +1,10 @@
 import React from "react";
 import { simpleChart } from "./../scripts/styleAreaChart";
 import AreaChart from "./AreaChart";
-import { chartDataGenerator } from "../scripts/chartDataGenerator";
+import {
+  chartDataLinearGenerator,
+  chartDataGenerator
+} from "../scripts/chartDataGenerator";
 
 function CashStatus(props) {
   return (
@@ -22,7 +25,13 @@ function CashStatus(props) {
         </div>
         <AreaChart
           options={simpleChart.options}
-          data={chartDataGenerator([], "", "Wydatki", 7)}
+          data={chartDataLinearGenerator(
+            props.workplaceData.sumCashStatusGroupByDay,
+            "cashStatus",
+            props.workplaceData.cashStatus,
+            "Stan kasy",
+            7
+          )}
         />
         <div className="border-title-extended border-top">
           <div>

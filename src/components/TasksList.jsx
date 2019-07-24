@@ -37,9 +37,7 @@ class TasksList extends Component {
         <div
           key={item.id}
           style={hidenStyle}
-          className={
-            item.deletedAt != null ? "task-list canceled" : "task-list"
-          }
+          className={item.deletedAt != null ? "task-list gray" : "task-list"}
         >
           <div>
             <span>{`${item.expense} zł`}</span>
