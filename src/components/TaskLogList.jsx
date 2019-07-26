@@ -36,9 +36,13 @@ function TaskLogList(props) {
         <h4>Ilość</h4>
         {item.quantity === "" ? "-" : `${item.quantity} kg`}
       </td>
-      <td className="capitalize">
-        <h4>Rodzaj materiału</h4>
-        {item.metalType === "" ? "-" : item.metalType}
+      <td>
+        <h4>Rodzaj złomu</h4>
+        {item.metalType === "" ? (
+          "-"
+        ) : (
+          <span className="capitalize">{item.metalType}</span>
+        )}
       </td>
       <td>
         <h4>Gdzie</h4>

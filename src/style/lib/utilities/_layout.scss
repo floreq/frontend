@@ -95,8 +95,14 @@ hr,
 
 .task-description {
   display: flex;
-  span {
+  div {
     margin-right: $margin__small;
+    span {
+      display: block;
+    }
+  }
+  h4 {
+    min-width: 0.8rem;
   }
 }
 

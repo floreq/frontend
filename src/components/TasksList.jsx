@@ -4,6 +4,16 @@ class TasksList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      nameScheme: {
+        zakup: "Zakup",
+        odbior: "Odbiór",
+        zaliczka: "Zaliczka",
+        wplywy: "Wpływy",
+        wydatki: "Wydatki",
+        stalowyShort: "St",
+        kolorowyShort: "Kl",
+        default: "-"
+      },
       ifShowMore: false
     };
 
@@ -44,11 +54,18 @@ class TasksList extends Component {
             <h4>{item.deletedAt != null ? "Anulowano" : item.actionDate}</h4>
           </div>
           <div className="task-description">
-            <span className="border-right">
-              {item.quantity === "" ? "" : item.quantity + " kg"}
-            </span>
+            <div className="border-right align-right">
+              <span>{item.quantity === "" ? "-" : item.quantity + " kg"}</span>
+              <span className="gray">
+                {this.state.nameScheme[item.task] === undefined
+                  ? this.state.nameScheme.default
+                  : this.state.nameScheme[item.task]}
+              </span>
+            </div>
             <h4 className={item.deletedAt != null ? null : "orange"}>
-              {item.metalType === "stalowy" ? "St" : "Kl"}
+              {this.state.nameScheme[item.metalType + "Short"] === undefined
+                ? this.state.nameScheme.default
+                : this.state.nameScheme[item.metalType + "Short"]}
             </h4>
           </div>
         </div>

@@ -4,29 +4,82 @@ import { getFormattedDate } from "../scripts/getFormattedDate";
 import Form from "./Form";
 
 // Stwierdzenie walidacji formularza
-const formValid = ({ formErrors, enteredTask }) => {
+const formValid = ({
+  formErrors,
+  enteredTask,
+  possibleTasks,
+  possibleMetalTypes,
+  disabledFieldsIf
+}) => {
   let valid = true;
+  let err = {};
 
-  // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
-    val.length > 0 && (valid = false);
-  });
-
-  // validate the form was filled out
-  Object.values(enteredTask).forEach(val => {
-    val === "" && (valid = false);
-  });
-
-  // Object.getOwnPropertyNames(enteredTask).forEach(val => {
-  //   if (enteredTask[val] === "" && val !== "comment") {
-  //     valid = false;
-  //   } else {
-  //     valid = true;
-  //   }
-  //   console.log(enteredTask[val]);
-  // });
-
-  return valid;
+  for (let [key, v] of Object.entries(enteredTask)) {
+    switch (key) {
+      case "actionDate":
+        if (!(typeof v === "string" && isValidDate(v))) {
+          valid = false;
+          err[key] = "dd.mm.rrrr";
+        } else {
+          err[key] = "";
+        }
+        break;
+      case "task":
+        if (!(typeof v === "string" && possibleTasks.includes(v))) {
+          valid = false;
+          err[key] = "Brak takiego zadania";
+        } else {
+          err[key] = "";
+        }
+        break;
+      case "comment":
+        if (!(typeof v === "string")) {
+          valid = false;
+        } else {
+          err[key] = "";
+        }
+        break;
+      case "expense":
+        if (!(typeof v === "string" && v !== "" && !isNaN(v))) {
+          valid = false;
+          err[key] = "np. 10.99";
+        } else {
+          err[key] = "";
+        }
+        break;
+      case "quantity":
+        if (
+          !(
+            typeof v === "string" &&
+            !isNaN(v) &&
+            (v !== "" || disabledFieldsIf.includes(enteredTask.task))
+          )
+        ) {
+          valid = false;
+          err[key] = "np. 1100.90";
+        } else {
+          err[key] = "";
+        }
+        break;
+      case "metalType":
+        if (
+          !(
+            typeof v === "string" &&
+            possibleMetalTypes.includes(v) &&
+            (v !== "" || disabledFieldsIf.includes(enteredTask.task))
+          )
+        ) {
+          valid = false;
+          err[key] = "Brak takiego rodzaju";
+        } else {
+          err[key] = "";
+        }
+        break;
+      default:
+        valid = false;
+    }
+  }
+  return { ifValid: valid, message: err };
 };
 
 class Task extends Component {
@@ -44,7 +97,8 @@ class Task extends Component {
       },
       // possibleTasks/Types zawieraja mozliwe do wyboru elementy, walidacja
       possibleTasks: ["zakup", "odbior", "zaliczka", "wplywy", "wydatki"],
-      possibleTypes: ["stalowy", "kolorowy"],
+      possibleMetalTypes: ["stalowy", "kolorowy"],
+      disabledFieldsIf: ["zaliczka", "wplywy", "wydatki"],
       // formErrors przechowuje bledy walidacyjne (np. Niewlasciwy format daty)
       formErrors: {
         actionDate: "",
@@ -73,6 +127,7 @@ class Task extends Component {
   handleChange(event) {
     const { name, value } = event.target;
     let formErrors = { ...this.state.formErrors };
+    let enteredTask = { ...this.state.enteredTask };
 
     // Sprawdzanie wpisywanych wartosci w formularzu
     switch (name) {
@@ -80,6 +135,11 @@ class Task extends Component {
         formErrors.actionDate = isValidDate(value) ? "" : "dd.mm.rrrr";
         break;
       case "task":
+        if (this.state.disabledFieldsIf.includes(value)) {
+          enteredTask.quantity = "";
+          formErrors.quantity = "";
+          formErrors.metalType = "";
+        }
         formErrors.task = this.state.possibleTasks.includes(value)
           ? ""
           : "Brak takiego zadania";
@@ -91,30 +151,29 @@ class Task extends Component {
         formErrors.quantity = isNaN(value) ? "np. 1100.90" : "";
         break;
       case "metalType":
-        formErrors.metalType = this.state.possibleTypes.includes(value)
+        formErrors.metalType = this.state.possibleMetalTypes.includes(value)
           ? ""
           : "Brak takiego rodzaju";
         break;
       default:
         break;
     }
-
-    this.setState(prevState => ({
+    this.setState({
       enteredTask: {
-        ...prevState.enteredTask,
+        ...enteredTask,
         [name]: value
       },
       formErrors
-    }));
+    });
   }
 
   // Dodanie zadania do listy wszystkich zadan
   handleSubmit(event) {
     // Usuniecie domyslnego zachowania przycisku submit w formularzy (zapobiega odswiezeniu strony)
     event.preventDefault();
-
+    const ifFormValid = formValid(this.state);
     // Przepuszczenie lub zatrzymanie formularza w zaleznosci od jego poprawnosci
-    if (formValid(this.state)) {
+    if (ifFormValid.ifValid) {
       this.setState(prevState => {
         // Przeslanie przez Workplace do Wrappera zatwierdzonego zadania
         this.props.postRequest(prevState.enteredTask, this.props.workplaceId);
@@ -131,6 +190,8 @@ class Task extends Component {
         };
       });
     } else {
+      const formErrors = { ...this.state.formErrors, ...ifFormValid.message };
+      this.setState({ formErrors });
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
   }
@@ -143,6 +204,7 @@ class Task extends Component {
         <Form
           formErrors={this.state.formErrors}
           enteredTask={this.state.enteredTask}
+          disabledFieldsIf={this.state.disabledFieldsIf}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />

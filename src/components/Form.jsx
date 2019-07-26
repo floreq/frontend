@@ -3,48 +3,6 @@ import React from "react";
 function Form(props) {
   // Zmienna potrzebna do wyswietlenia bledu walidacji
   const fError = props.formErrors;
-  // Przypisanie do zmiennych pol zaleznych od wyboru
-  let quantity = (
-    <label>
-      <h4>Ilość</h4>
-      <input
-        className={
-          fError.quantity.length > 0 ? "error align-right" : "align-right"
-        }
-        type="text"
-        name="quantity"
-        value={props.enteredTask.quantity}
-        onChange={props.handleChange}
-      />
-      <span>kg</span>
-      {// Wyswietlenie bledu walidacji
-      fError.quantity.length > 0 && (
-        <span className="error-message">{fError.quantity}</span>
-      )}
-    </label>
-  );
-  let type = (
-    <label>
-      <h4>Rodzaj złomu</h4>
-      <select
-        className={props.formErrors.metalType.length > 0 ? "error" : null}
-        name="metalType"
-        // Jesli sie nie zmienilo opcji, wartosc zostawala pusta
-        value={
-          props.enteredTask.metalType === ""
-            ? (props.enteredTask.metalType = "stalowy")
-            : props.enteredTask.metalType
-        }
-        onChange={props.handleChange}
-      >
-        <option value="stalowy">Stalowy</option>
-        <option value="kolorowy">Kolorowy</option>
-      </select>
-      {fError.metalType.length > 0 && (
-        <span className="error-message">{fError.metalType}</span>
-      )}
-    </label>
-  );
 
   return (
     <form onSubmit={props.handleSubmit} noValidate>
@@ -111,8 +69,61 @@ function Form(props) {
           <span className="error-message">{fError.expense}</span>
         )}
       </label>
-      {quantity}
-      {type}
+      <label>
+        <h4>Ilość</h4>
+        <input
+          className={
+            fError.quantity.length > 0 ? "error align-right" : "align-right"
+          }
+          type="text"
+          name="quantity"
+          value={props.enteredTask.quantity}
+          onChange={props.handleChange}
+          disabled={
+            props.disabledFieldsIf.includes(props.enteredTask.task)
+              ? "disabled"
+              : null
+          }
+        />
+        <span
+          className={
+            props.disabledFieldsIf.includes(props.enteredTask.task)
+              ? "gray"
+              : null
+          }
+        >
+          kg
+        </span>
+        {// Wyswietlenie bledu walidacji
+        fError.quantity.length > 0 && (
+          <span className="error-message">{fError.quantity}</span>
+        )}
+      </label>
+      <label>
+        <h4>Rodzaj złomu</h4>
+        <select
+          className={props.formErrors.metalType.length > 0 ? "error" : null}
+          name="metalType"
+          // Jesli sie nie zmienilo opcji, wartosc zostawala pusta
+          value={
+            props.enteredTask.metalType === ""
+              ? (props.enteredTask.metalType = "stalowy")
+              : props.enteredTask.metalType
+          }
+          onChange={props.handleChange}
+          disabled={
+            props.disabledFieldsIf.includes(props.enteredTask.task)
+              ? "disabled"
+              : null
+          }
+        >
+          <option value="stalowy">Stalowy</option>
+          <option value="kolorowy">Kolorowy</option>
+        </select>
+        {fError.metalType.length > 0 && (
+          <span className="error-message">{fError.metalType}</span>
+        )}
+      </label>
       <button>Zatwierdź</button>
     </form>
   );
