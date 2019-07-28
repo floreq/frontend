@@ -12,6 +12,29 @@ export const getFormattedDate = d => {
   return `${day}.${m}.${year}`;
 };
 
+export const getFormattedMonthAndYear = d => {
+  if (d === undefined) {
+    d = new Date();
+  } else {
+    d = new Date(d);
+  }
+  // Dodanie 0 przed jednocyfrowym miesiacem
+  const m = d.getMonth() < 9 ? "0" + (d.getMonth() + 1) : d.getMonth() + 1;
+  const year = d.getFullYear();
+  return `${m}.${year}`;
+};
+
+export const getFormattedMonth = d => {
+  if (d === undefined) {
+    d = new Date();
+  } else {
+    d = new Date(d);
+  }
+  // Dodanie 0 przed jednocyfrowym dniem
+  const m = d.getMonth() < 9 ? "0" + (d.getMonth() + 1) : d.getMonth() + 1;
+  return `${m}`;
+};
+
 export const getFormattedDay = d => {
   if (d === undefined) {
     d = new Date();

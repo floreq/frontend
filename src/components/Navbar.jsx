@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import User from "./User";
+//import User from "./User";
 
 function Navbar(props) {
   //console.log(this.props.workplaceRequest);
@@ -44,7 +44,7 @@ function Navbar(props) {
               </NavLink>
             </li>
           </ul>
-          <User />
+          {/* <User /> */}
         </div>
       </nav>
       <hr className="nav-hr" />

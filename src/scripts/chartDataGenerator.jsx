@@ -52,18 +52,25 @@ export const chartDataLinearGenerator = (
 };
 
 // chartDataGenerator potrzebuje czterech wartosci:
-// v (array) - tablica z danymi, vName (string) - informacji jakiego obiektu szukac, nameTag (string) - nazwa wykresu, numberOfLabels (obiekt) - ilosc etykiet
+// v (array) - tablica z danymi, vName (string) - informacji jakiego obiektu szukac, nameTag (string) - nazwa wykresu,
+// numberOfLabels (object) - ilosc etykiet, additionalStyling (object) - opcjonalne, typeOfLables (number) - opcjonalne
 export const chartDataGenerator = (
   v,
   vName,
   nameTag,
   numberOfLabels,
-  additionalStyling
+  additionalStyling,
+  typeOfLables
 ) => {
+  if (typeOfLables === undefined) {
+    typeOfLables = 0;
+  }
+  const retriveCorrespondingLabeling = newChartLabeling(numberOfLabels)[
+    typeOfLables + 1
+  ].reverse();
   // Przyporzadkowanie danych do odpowiadajacej etykiety (np. dane z dnia 21.01.2019 odpowiadaja etykiecie 21.01.2019)
-  const returnDataCorrespondingToLabeling = newChartLabeling(numberOfLabels)[1]
-    .reverse()
-    .map(e => {
+  const returnDataCorrespondingToLabeling = retriveCorrespondingLabeling.map(
+    e => {
       let outcome = 0;
       // Przypisywanie, mapowanie ilosci materialu do etykiet
       for (let i = 0; i < v.length; i++) {
@@ -73,11 +80,16 @@ export const chartDataGenerator = (
         }
       }
       return outcome;
-    });
+    }
+  );
+
+  if (typeOfLables === undefined) {
+    typeOfLables = 0;
+  }
 
   // Zwrocenie danych do wykresu
   const data = {
-    labels: newChartLabeling(numberOfLabels)[0],
+    labels: newChartLabeling(numberOfLabels)[typeOfLables],
     datasets: [
       {
         label: nameTag,

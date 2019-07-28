@@ -31,6 +31,28 @@ function WorkplaceSummary(props) {
           />
         </div>
         <div className="two-diffrent-columns-reverse">
+          <div>
+            <h3>Średnia</h3>
+            <h4>
+              Miesięcznie z zakupu <br />
+              Ilość przez kwota <br />
+            </h4>
+          </div>
+          <BarChart
+            options={chartWithBorder.options}
+            data={chartDataGenerator(
+              props.workplaceData.sumAverageGroupByDay.filter(
+                item => item.metalTypeName === "stalowy"
+              ),
+              "average",
+              "Średnia, złom stalowy",
+              12,
+              { borderWidth: 3 },
+              2
+            )}
+          />
+        </div>
+        <div className="two-diffrent-columns-reverse">
           <h3>Metal kolorowy</h3>
           <AreaChart
             options={chartWithBorder.options}
@@ -47,31 +69,43 @@ function WorkplaceSummary(props) {
             )}
           />
         </div>
-      </div>
-      <div className="border summary component">
         <div className="two-diffrent-columns-reverse">
           <div>
             <h3>Średnia</h3>
-            <h4>Ilość przez kwota</h4>
+            <h4>
+              Miesięcznie z zakupu <br />
+              Ilość przez kwota <br />
+            </h4>
           </div>
-          <AreaChart
+          <BarChart
             options={chartWithBorder.options}
-            data={chartDataGenerator([], "", "Średnia", 12)}
+            data={chartDataGenerator(
+              props.workplaceData.sumAverageGroupByDay.filter(
+                item => item.metalTypeName === "kolorowy"
+              ),
+              "average",
+              "Średnia, metal kolorowy",
+              12,
+              { borderWidth: 3 },
+              2
+            )}
           />
         </div>
+      </div>
+      <div className="border summary component">
         <div className="two-diffrent-columns-reverse">
           <div>
             <h3>Zaliczka</h3>
             {selectDayPeriod}
           </div>
-          <BarChart
+          <AreaChart
             options={chartWithBorder.options}
             data={chartDataGenerator(
               props.workplaceData.sumAdvancePaymentGroupByDay,
               "sumAdvancePayment",
               "Zaliczka",
               12,
-              { borderWidth: 3 }
+              {}
             )}
           />
         </div>
@@ -88,7 +122,6 @@ function WorkplaceSummary(props) {
               "Wpływy",
               12
             )}
-            //data={state.stockData.data}
           />
         </div>
         <div className="two-diffrent-columns-reverse">

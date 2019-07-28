@@ -104,7 +104,17 @@ class Wrapper extends Component {
               />
             )}
           />
-          <Route exact path="/" component={Summary} />
+          {/* <Route exact path="/" component={Summary} /> */}
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Summary
+                tasks={this.state.tasks}
+                workplaceData={this.state.workplaces}
+              />
+            )}
+          />
           <Route
             path="/task-log"
             render={() => (

@@ -54,10 +54,23 @@ class Workplace extends Component {
           ],
           sumAdvancePaymentGroupByDay: [
             { actionDate: "00.00.0000", sumAdvancePayment: 0 }
+          ],
+          sumAverageGroupByDay: [
+            {
+              correctDateFormat: "00.00.0000",
+              actionDate: "00.00.0000",
+              metalTypeName: "stalowy",
+              average: 0
+            },
+            {
+              correctDateFormat: "00.00.0000",
+              actionDate: "00.00.0000",
+              metalTypeName: "kolorowy",
+              average: 0
+            }
           ]
         }
       ],
-      id: 1,
       workplaceName: "Sklep"
     };
   }
