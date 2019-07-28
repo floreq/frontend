@@ -24,7 +24,9 @@ function Stock(props) {
               : nameScheme.default}
           </h3>
         </div>
-        <h3 className="non-bold">{`${item.sumMetalIncome / 1000} t`}</h3>
+        <h3 className="non-bold">{`${Math.round(
+          (item.sumMetalIncome / 1000) * 10
+        ) / 10} t`}</h3>
       </div>
     );
   });
