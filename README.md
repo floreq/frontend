@@ -66,6 +66,6 @@ Zobacz również współpracowników, którzy uczestniczyli w projekcie:
 
 ## Licencje
 
-Licencje znajdują się w folderze [licenses](/documentation/licenses/).
+Znajdują się w folderze [licenses](/documentation/licenses/).
 
 
