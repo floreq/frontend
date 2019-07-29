@@ -50,7 +50,7 @@ Tak wygląda aplikacja z przykładowo wprowadzonymi danymi
 
 ---
 
-## Stworzone z wykorzystaniem
+## Wykorzystanie
 
 - [Create React App](https://github.com/facebook/create-react-app) - Stworzenie szablonu aplikacji
 - [React.js](https://reactjs.org/) - Główna biblioteka 
