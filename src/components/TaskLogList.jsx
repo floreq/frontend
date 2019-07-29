@@ -5,15 +5,6 @@ import {
 } from "../scripts/getFormattedDate";
 
 function TaskLogList(props) {
-  // const test = [];
-  // for (let i = 0; i <= 50; i++) {
-  //   console.log(
-  //     getFormattedDate(new Date(new Date().setDate(new Date().getDate() - i)))
-  //   );
-  // }
-  // console.log(
-  //   props.tasks.filter(i => i.actionDate === "20.07.2019" && i.originId === 1)
-  // );
   const logEntry = props.tasks.map(item => (
     <tr key={item.id} className={item.deletedAt != null ? "gray" : null}>
       <td>
@@ -69,11 +60,12 @@ function TaskLogList(props) {
       </td>
     </tr>
   ));
-  return (
+  console.log(logEntry.length);
+  return logEntry.length > 0 ? (
     <table>
       <tbody>{logEntry}</tbody>
     </table>
-  );
+  ) : null;
 }
 
 export default TaskLogList;
