@@ -3,7 +3,6 @@ import React from "react";
 function Form(props) {
   // Zmienna potrzebna do wyswietlenia bledu walidacji
   const fError = props.formErrors;
-
   return (
     <form onSubmit={props.handleSubmit} noValidate>
       <label>
@@ -104,9 +103,10 @@ function Form(props) {
         <select
           className={props.formErrors.metalType.length > 0 ? "error" : null}
           name="metalType"
-          // Jesli sie nie zmienilo opcji, wartosc zostawala pusta
           value={
-            props.enteredTask.metalType === ""
+            props.disabledFieldsIf.includes(props.enteredTask.task) // Jezeli zadanie zawiera sie w disabledFieldsIf zwroc ""
+              ? (props.enteredTask.metalType = "")
+              : props.enteredTask.metalType === "" // Jezeli nie, a metalType jest "" to zwroc stalowy
               ? (props.enteredTask.metalType = "stalowy")
               : props.enteredTask.metalType
           }

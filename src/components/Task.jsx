@@ -5,7 +5,6 @@ import Form from "./Form";
 
 // Stwierdzenie walidacji formularza
 const formValid = ({
-  formErrors,
   enteredTask,
   possibleTasks,
   possibleMetalTypes,
@@ -40,7 +39,7 @@ const formValid = ({
         }
         break;
       case "expense":
-        if (!(typeof v === "string" && v !== "" && !isNaN(v))) {
+        if (!(typeof v === "string" && v !== "" && !isNaN(v) && v >= 0)) {
           valid = false;
           err[key] = "np. 10.99";
         } else {
@@ -52,6 +51,7 @@ const formValid = ({
           !(
             typeof v === "string" &&
             !isNaN(v) &&
+            v >= 0 &&
             (v !== "" || disabledFieldsIf.includes(enteredTask.task))
           )
         ) {
@@ -65,8 +65,8 @@ const formValid = ({
         if (
           !(
             typeof v === "string" &&
-            possibleMetalTypes.includes(v) &&
-            (v !== "" || disabledFieldsIf.includes(enteredTask.task))
+            (possibleMetalTypes.includes(v) ||
+              disabledFieldsIf.includes(enteredTask.task))
           )
         ) {
           valid = false;
@@ -145,10 +145,10 @@ class Task extends Component {
           : "Brak takiego zadania";
         break;
       case "expense":
-        formErrors.expense = isNaN(value) ? "np. 10.99" : "";
+        formErrors.expense = isNaN(value) || value < 0 ? "np. 10.99" : "";
         break;
       case "quantity":
-        formErrors.quantity = isNaN(value) ? "np. 1100.90" : "";
+        formErrors.quantity = isNaN(value) || value < 0 ? "np. 1100.90" : "";
         break;
       case "metalType":
         formErrors.metalType = this.state.possibleMetalTypes.includes(value)
