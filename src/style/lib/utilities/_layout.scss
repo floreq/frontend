@@ -136,3 +136,20 @@ table {
     }
   }
 }
+
+.short-table {
+  table {
+    margin-bottom: 0;
+    tr {
+      td:nth-child(3) {
+        display: none;
+      }
+      td:nth-child(7) {
+        display: none;
+      }
+      td:nth-child(8) {
+        display: none;
+      }
+    }
+  }
+}

@@ -60,12 +60,19 @@ function TaskLogList(props) {
       </td>
     </tr>
   ));
-  console.log(logEntry.length);
   return logEntry.length > 0 ? (
     <table>
       <tbody>{logEntry}</tbody>
     </table>
-  ) : null;
+  ) : (
+    <table>
+      <tbody>
+        <tr>
+          <td>Brak dokonanych zleceń</td>
+        </tr>
+      </tbody>
+    </table>
+  );
 }
 
 export default TaskLogList;

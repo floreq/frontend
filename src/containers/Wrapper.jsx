@@ -111,6 +111,7 @@ class Wrapper extends Component {
             render={() => (
               <Summary
                 tasks={this.state.tasks}
+                deleteRequest={this.state.deleteRequest}
                 workplaceData={this.state.workplaces}
               />
             )}
