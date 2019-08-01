@@ -32,7 +32,10 @@ class TasksList extends Component {
   render() {
     // Wybranie tylko tasks z odpowiednim originId
     const newFilteredTasks = this.props.tasks.filter(f => {
-      return f.originId === Number(this.props.workplaceId);
+      //return f.originId === Number(this.props.workplaceId);
+      return this.props.workplaceId !== undefined
+        ? f.originId === Number(this.props.workplaceId)
+        : f.originId;
     });
     // Odczytanie 5 zadan z tablicy
     const newTasks = newFilteredTasks.slice(0, 5).map((item, index = 0) => {
@@ -50,7 +53,11 @@ class TasksList extends Component {
           className={item.deletedAt != null ? "task-list gray" : "task-list"}
         >
           <div>
-            <span>{`${item.expense} zł`}</span>
+            <span>
+              {this.props.workplaceId === undefined
+                ? `Sklep ${item.originId}`
+                : `${item.expense} zł`}
+            </span>
             <h4>{item.deletedAt != null ? "Anulowano" : item.actionDate}</h4>
           </div>
           <div className="task-description">
@@ -75,7 +82,12 @@ class TasksList extends Component {
       <div className="border component">
         <div className="border-title">
           <h2>Ostatnie zlecenia</h2>
-          <h4>{`${this.props.workplaceName} ${this.props.workplaceId}`}</h4>
+          <h4>
+            {this.props.workplaceName !== undefined &&
+            this.props.workplaceId !== undefined
+              ? `${this.props.workplaceName} ${this.props.workplaceId}`
+              : null}
+          </h4>
         </div>
         {newTasks.length === 0 ? "Brak dokonanych zleceń" : newTasks}
         {newTasks.length !== 0 ? (

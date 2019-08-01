@@ -1,6 +1,7 @@
 import React from "react";
 import TaskLogList from "../components/TaskLogList";
 import Stock from "../components/Stock";
+import TasksList from "../components/TasksList";
 import CashStatus from "../components/CashStatus";
 import { workplaceSampleData } from "../scripts/workplaceSampleData";
 
@@ -47,6 +48,7 @@ function Summary(props) {
       </div>
 
       <div>
+        <TasksList tasks={props.tasks} />
         <CashStatus workplaceData={workplaceSampleData[0]} />
       </div>
     </div>

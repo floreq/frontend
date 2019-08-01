@@ -51,7 +51,15 @@ class Wrapper extends Component {
         })
           .then(response => response.json())
           .then(response => {
-            this.setState({ tasks: response });
+            this.setState(prevState => {
+              // Znalezienie anulowanego indexu
+              const responseIndex = prevState.tasks.findIndex(e => {
+                return e.id === response[0].id;
+              });
+              // Nadpisanie anulowanym obiektem
+              prevState.tasks[responseIndex] = response[0];
+              return { tasks: prevState.tasks };
+            });
           });
       },
       workplaceRequest: id => {
@@ -85,6 +93,14 @@ class Wrapper extends Component {
       .catch(err => {
         console.error(err);
       });
+
+    // fetch(`http://localhost:3001/workplaces`, {
+    //   method: "GET"
+    // })
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     console.log(response);
+    //   });
   }
 
   render() {
