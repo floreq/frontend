@@ -69,9 +69,20 @@ class Wrapper extends Component {
           .then(response => response.json())
           .then(response => {
             this.setState(prevState => {
+              // Dodac sprawdzenie czy sklepy sa odpowiednio ulozone w arrayu!!!
+              // Dodav find index dla bezpieczenstwa
               prevState.workplaces[id - 1] = response;
               return { workplaces: prevState.workplaces };
             });
+          });
+      },
+      allWorkplacesRequest: () => {
+        fetch(`http://localhost:3001/workplaces`, {
+          method: "GET"
+        })
+          .then(response => response.json())
+          .then(response => {
+            this.setState({ workplaces: response });
           });
       }
     };
@@ -93,20 +104,17 @@ class Wrapper extends Component {
       .catch(err => {
         console.error(err);
       });
-
-    // fetch(`http://localhost:3001/workplaces`, {
-    //   method: "GET"
-    // })
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     console.log(response);
-    //   });
+    // Wykonanie zapytania http://localhost:3001/workplaces
+    this.state.allWorkplacesRequest();
   }
 
   render() {
     return (
       <Router>
-        <Navbar workplaceRequest={this.state.workplaceRequest} />
+        <Navbar
+          workplaceRequest={this.state.workplaceRequest}
+          allWorkplacesRequest={this.state.allWorkplacesRequest}
+        />
         <Switch>
           <Route
             path="/workplace/:id"

@@ -9,7 +9,7 @@ function Navbar(props) {
       <nav>
         <ul>
           <li>
-            <NavLink exact to="/">
+            <NavLink exact to="/" onClick={() => props.allWorkplacesRequest()}>
               Podsumowanie
             </NavLink>
           </li>
