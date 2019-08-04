@@ -43,6 +43,14 @@ function Navbar(props) {
                 Sklep 3
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/workplace/4"
+                onClick={() => props.workplaceRequest(4)}
+              >
+                Sklep 4
+              </NavLink>
+            </li>
           </ul>
           {/* <User /> */}
         </div>

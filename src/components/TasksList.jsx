@@ -53,12 +53,13 @@ class TasksList extends Component {
           className={item.deletedAt != null ? "task-list gray" : "task-list"}
         >
           <div>
-            <span>
+            <span>{`${item.expense} zł`}</span>
+            <h4>
               {this.props.workplaceId === undefined
-                ? `Sklep ${item.originId}`
-                : `${item.expense} zł`}
-            </span>
-            <h4>{item.deletedAt != null ? "Anulowano" : item.actionDate}</h4>
+                ? `Sklep ${item.originId}, `
+                : null}
+              {item.deletedAt != null ? "Anulowano" : item.actionDate}
+            </h4>
           </div>
           <div className="task-description">
             <div className="border-right align-right">

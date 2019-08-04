@@ -64,6 +64,24 @@ function Summary(props) {
             }
           />
         </div>
+        <div className="component short-table">
+          <h4>Ostatnia aktywność</h4>
+          <h1>Sklep 4</h1>
+          <TaskLogList
+            tasks={props.tasks
+              .filter(e => e.originId === 4 && e.deletedAt === null)
+              .slice(0, 1)}
+            deleteRequest={props.deleteRequest}
+          />
+          <hr />
+          <Stock
+            workplaceData={
+              props.workplaceData[3] !== undefined
+                ? props.workplaceData[3]
+                : workplaceSampleData[0]
+            }
+          />
+        </div>
       </div>
 
       <div>
