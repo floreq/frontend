@@ -39,6 +39,7 @@ npm start
 Tak wygląda aplikacja z przykładowo wprowadzonymi danymi
 
 ### Podsumowanie (Summary)
+![Summary](/documentation/images/summary.png)
 
 ---
 ### Dziennik aktywności (TaskLog)
