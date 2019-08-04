@@ -1,6 +1,6 @@
 # Scrap app
 
-Frontend aplikacji, którą stworzyłem w wolnym czasie. Można powiedzieć, że jest to rozbudowana lista zadań z możliwością prezentowania wprowadzonych danych. Projekt pozwolił mi postawić swoje pierwsze kroki z Reactem. Scrap app jest ściśle związany z [Backendem](https://github.com/floreq/backend)
+Frontend aplikacji, którą stworzyłem w wolnym czasie. Można powiedzieć, że jest to rozbudowana lista zadań z możliwością prezentowania wprowadzonych danych. Projekt pozwolił mi postawić swoje pierwsze kroki z Reactem. Scrap app jest ściśle związany z [Backendem](https://github.com/floreq/backend).
 
 ## Wprowadzenie
 
@@ -43,7 +43,7 @@ npm start
 
 ## Wygląd aplikacji
 
-Tak wygląda aplikacja z przykładowo wprowadzonymi danymi
+Tak wygląda aplikacja z przykładowo wprowadzonymi danymi.
 
 ### Podsumowanie (Summary)
 ![Summary](/documentation/images/summary.png)
@@ -78,6 +78,6 @@ Znajdują się w folderze [licenses](/documentation/licenses/).
 
 ## Zobacz również
 
-Powiązane repozytorium [Backend](https://github.com/floreq/backend)
+Powiązane repozytorium [Backend](https://github.com/floreq/backend).
 
 
