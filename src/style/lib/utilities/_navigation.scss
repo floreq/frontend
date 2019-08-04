@@ -21,6 +21,9 @@ nav {
     display: inline;
     margin-right: $margin__big;
   }
+  li:last-child {
+    margin-right: 0;
+  }
   a {
     color: $black;
     text-decoration: none;
