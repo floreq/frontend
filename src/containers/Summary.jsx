@@ -4,6 +4,7 @@ import Stock from "../components/Stock";
 import TasksList from "../components/TasksList";
 import CashStatus from "../components/CashStatus";
 import { workplaceSampleData } from "../scripts/workplaceSampleData";
+import { sumData, sumDataByDate } from "../scripts/sumData";
 
 function Summary(props) {
   return (
@@ -19,7 +20,13 @@ function Summary(props) {
             deleteRequest={props.deleteRequest}
           />
           <hr />
-          <Stock workplaceData={workplaceSampleData[0]} />
+          <Stock
+            workplaceData={
+              props.workplaceData[0] !== undefined
+                ? props.workplaceData[0]
+                : workplaceSampleData[0]
+            }
+          />
         </div>
         <div className="component short-table">
           <h4>Ostatnia aktywność</h4>
@@ -31,7 +38,13 @@ function Summary(props) {
             deleteRequest={props.deleteRequest}
           />
           <hr />
-          <Stock workplaceData={workplaceSampleData[0]} />
+          <Stock
+            workplaceData={
+              props.workplaceData[1] !== undefined
+                ? props.workplaceData[1]
+                : workplaceSampleData[0]
+            }
+          />
         </div>
         <div className="component short-table">
           <h4>Ostatnia aktywność</h4>
@@ -43,13 +56,39 @@ function Summary(props) {
             deleteRequest={props.deleteRequest}
           />
           <hr />
-          <Stock workplaceData={workplaceSampleData[0]} />
+          <Stock
+            workplaceData={
+              props.workplaceData[2] !== undefined
+                ? props.workplaceData[2]
+                : workplaceSampleData[0]
+            }
+          />
         </div>
       </div>
 
       <div>
         <TasksList tasks={props.tasks} />
-        <CashStatus workplaceData={workplaceSampleData[0]} />
+        <CashStatus
+          //workplaceData={workplaceSampleData[0]}
+          workplaceData={
+            props.workplaceData.length !== 0
+              ? {
+                  ...sumData(props.workplaceData, "cashStatus"),
+                  ...sumData(props.workplaceData, "sumExpenseLast7Days"),
+                  ...sumDataByDate(
+                    props.workplaceData,
+                    "sumCashStatusGroupByDay",
+                    "cashStatus"
+                  ),
+                  ...sumDataByDate(
+                    props.workplaceData,
+                    "expensesGroupByDay",
+                    "sumExpenses"
+                  )
+                }
+              : workplaceSampleData[0]
+          }
+        />
       </div>
     </div>
   );

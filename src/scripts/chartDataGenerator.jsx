@@ -14,25 +14,27 @@ export const chartDataLinearGenerator = (
   // Przyporzadkowanie danych do odpowiadajacej etykiety (np. dane z dnia 21.01.2019 odpowiadaja etykiecie 21.01.2019)
   let outcome = actualValue; // Przechowanie stanu magazynu w danym czasie
   let prevValue = 0; // Przechowanie ile w danym dniu jest materialu
-
+  let prevDates = [];
   // Przyporzadkowanie danych do odpowiadajacej etykiety (np. dane z dnia 21.01.2019 odpowiadaja etykiecie 21.01.2019)
   // Znany calkowity stan magazynu i ilosc materialu "zakuiponego" w dany dzien.
   // Odejmowanie od calkowietego stanu magazynu i ilosci materialu
   const returnDataCorrespondingToLabeling = newChartLabeling(numberOfLabels)[1]
     .reverse()
     .map(e => {
-      // Przypisywanie, mapowanie ilosci materialu do etykiet
-      for (let i = 0; i < v.length; i++) {
-        if (v[i].actionDate === e) {
-          outcome -= prevValue;
-          prevValue = v[i][vName];
-          break;
-        } else if (i === v.length - 1) {
+      if (!prevDates.includes(e)) {
+        const filteredV = v.filter(lookingDate => {
+          return lookingDate.actionDate === e;
+        });
+
+        if (filteredV.length === 0) {
           outcome -= prevValue;
           prevValue = 0;
-          break;
+        } else {
+          outcome -= prevValue;
+          prevValue = filteredV[0][vName];
         }
       }
+      prevDates.push(e); // Dodanie przefiltrowanej daty
       return outcome;
     });
 
