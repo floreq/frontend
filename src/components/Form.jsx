@@ -44,11 +44,15 @@ function Form(props) {
       <label>
         <h4>Komentarz</h4>
         <input
+          className={fError.comment.length > 0 ? "error" : null}
           type="text"
           name="comment"
           value={props.enteredTask.comment}
           onChange={props.handleChange}
         />
+        {fError.comment.length > 0 && (
+          <span className="error-message">{fError.comment}</span>
+        )}
       </label>
       <label>
         <h4>Kwota</h4>

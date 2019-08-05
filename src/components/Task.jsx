@@ -32,8 +32,9 @@ const formValid = ({
         }
         break;
       case "comment":
-        if (!(typeof v === "string")) {
+        if (!(typeof v === "string" && v.length <= 15)) {
           valid = false;
+          err[key] = "Limit 15 znaków";
         } else {
           err[key] = "";
         }
@@ -143,6 +144,9 @@ class Task extends Component {
         formErrors.task = this.state.possibleTasks.includes(value)
           ? ""
           : "Brak takiego zadania";
+        break;
+      case "comment":
+        formErrors.comment = value.length > 15 ? "Limit 15 znaków" : "";
         break;
       case "expense":
         formErrors.expense = isNaN(value) || value < 0 ? "np. 10.99" : "";
