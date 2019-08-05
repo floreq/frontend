@@ -54,10 +54,10 @@ class Wrapper extends Component {
             this.setState(prevState => {
               // Znalezienie anulowanego indexu
               const responseIndex = prevState.tasks.findIndex(e => {
-                return e.id === response[0].id;
+                return e.id === response.id;
               });
               // Nadpisanie anulowanym obiektem
-              prevState.tasks[responseIndex] = response[0];
+              prevState.tasks[responseIndex] = response;
               return { tasks: prevState.tasks };
             });
           });
