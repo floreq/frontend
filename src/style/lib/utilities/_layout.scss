@@ -1,0 +1,152 @@
+body {
+  font-family: $font-family__base;
+  margin: auto;
+  padding: $padding__big;
+  max-width: 1600px; // Tymczasowo
+}
+
+.border {
+  padding: $padding__big;
+  border: $border;
+  border-radius: $border-radius;
+}
+
+.border-right {
+  padding-right: $padding__big;
+  border-right: $border;
+}
+
+.border-title,
+.border-title-extended {
+  margin: -$margin__big;
+  margin-bottom: $margin__big;
+  padding: $margin__big;
+  border-bottom: $border;
+}
+
+.border-title-extended {
+  display: flex;
+  justify-content: space-between;
+}
+
+.border-top {
+  margin-top: $margin__big;
+  padding-top: $padding__big;
+  border-top: $border;
+}
+
+.component {
+  margin-top: $margin__big;
+}
+
+hr,
+.nav-hr,
+.footer-hr {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: $border;
+  height: $border-width;
+}
+
+.nav-hr,
+.footer-hr {
+  margin-left: -$margin__big;
+  margin-right: -$margin__big;
+}
+
+.footer-hr {
+  margin-top: $margin__big;
+}
+
+.stock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $margin__big;
+}
+
+.two-columns,
+.two-diffrent-columns,
+.two-diffrent-columns-reverse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: $margin__big;
+}
+
+.two-diffrent-columns {
+  grid-template-columns: 1fr 35%;
+}
+
+.two-diffrent-columns-reverse {
+  grid-template-columns: 1fr 65%;
+}
+
+.task-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $margin__big;
+}
+
+.task-list:last-child {
+  margin-bottom: 0;
+}
+
+.task-description {
+  display: flex;
+  div {
+    margin-right: $margin__small;
+    span {
+      display: block;
+    }
+  }
+  h4 {
+    min-width: 0.8rem;
+  }
+}
+
+.summary {
+  div {
+    margin-bottom: $margin__big;
+  }
+  div:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  margin-bottom: -$margin__big;
+  border-spacing: 0 $margin__big;
+
+  tr {
+    border-bottom: $border;
+    padding-bottom: $margin__big 0;
+    td {
+      padding-bottom: $margin__big;
+      border-bottom: $border;
+    }
+  }
+  tr:last-child {
+    td {
+      padding-bottom: 0;
+      border-bottom: unset;
+    }
+  }
+}
+
+.short-table {
+  table {
+    margin-bottom: 0;
+    tr {
+      td:nth-child(7) {
+        display: none;
+      }
+      td:nth-child(8) {
+        display: none;
+      }
+    }
+  }
+}

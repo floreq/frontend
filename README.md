@@ -1,69 +1,83 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Scrap app
 
-## Available Scripts
+Frontend aplikacji, którą stworzyłem w wolnym czasie. Można powiedzieć, że jest to rozbudowana lista zadań z możliwością prezentowania wprowadzonych danych. Projekt pozwolił mi postawić swoje pierwsze kroki z Reactem. Scrap app jest ściśle związany z [Backendem](https://github.com/floreq/backend).
 
-In the project directory, you can run:<br>
-(but on first start you have to initiate the application by running this command `npm install`)
+## Wprowadzenie
 
-### `npm start`
+Aplikacja wykorzystuje do działania bibliotekę React.js. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Przed uruchomieniem
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Należy posiadać, np. menadżer plików Node.js do uruchomienia aplikacji. Poniższe polecenia są wykonywane w terminalu:
 
-### `npm test`
+- Ubuntu 18.04
+```
+sudo apt update
+sudo apt install nodejs
+nodejs --version
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Uruchomienie aplikacji
 
-### `npm run build`
+W folderze z frontend należy wykonać poniższe instrukcje.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Pierwsze uruchomienie, inicjalizacja.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+npm install
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Po pierwszym uruchomieniu wystarczy już samo polecenie:
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Jak dodać kolejną podstronę Sklep... (Workplace)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Dodać w komponencie [Navbar](https://github.com/floreq/frontend/blob/72cff2a86c5d744cdb3255fdb358ec6d96ee93ba/src/components/Navbar.jsx#L23-L28) dodatkową podstronę.
+2. Dodać w komponencie [Summary](https://github.com/floreq/frontend/blob/72cff2a86c5d744cdb3255fdb358ec6d96ee93ba/src/containers/Summary.jsx#L13-L30) dodatkową ostatnią aktywność nowej podstrony.
+3. W [Backend](https://github.com/floreq/backend) należy zmodyfikować zmienną [possibleOrigin](https://github.com/floreq/backend/blob/119793467d06285aa6d16e8b336db49038d50a5b/server.js#L82) w funkcji ```isValidInsert()```.
+4. Dalej w [Backend](https://github.com/floreq/backend) należy dodać do [Promise.all](https://github.com/floreq/backend/blob/119793467d06285aa6d16e8b336db49038d50a5b/server.js#L399w) w zapytaniu ```"/workplaces/"``` kolejne odniesienie się do podstrony.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Wygląd aplikacji
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Tak wygląda aplikacja z przykładowo wprowadzonymi danymi.
 
-## Learn More
+### Podsumowanie (Summary)
+![Summary](/documentation/images/summary.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
+### Dziennik aktywności (TaskLog)
+![TaskLog](/documentation/images/tasklog.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+### Sklep 1... (Workplace)
+![Workplace](/documentation/images/workplace.png)
 
-### Code Splitting
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Wykorzystane
 
-### Analyzing the Bundle Size
+- [Create React App](https://github.com/facebook/create-react-app) - Stworzenie szablonu aplikacji
+- [React.js](https://reactjs.org/) - Główna biblioteka 
+- [Chart.js](https://www.chartjs.org/) - Silnik wykresów
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Autorzy
 
-### Making a Progressive Web App
+- **Piotr Florczak** - *większość pracy* - [Floreq](https://github.com/floreq)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Zobacz również współpracowników, którzy uczestniczyli w projekcie:
+- [Aqum](https://github.com/aqum),
+- [TheXenonis](https://github.com/TheXenonis).
 
-### Advanced Configuration
+## Licencje
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Znajdują się w folderze [licenses](/documentation/licenses/).
 
-### Deployment
+## Zobacz również
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Powiązane repozytorium [Backend](https://github.com/floreq/backend).
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

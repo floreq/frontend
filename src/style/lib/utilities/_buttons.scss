@@ -1,0 +1,71 @@
+button {
+  padding: 0;
+  font-size: $font-size__m;
+  text-align: right;
+  border: none;
+  background: none;
+  color: $orange;
+}
+
+input,
+select {
+  padding: $margin__smaller;
+  width: $width__input;
+  font-size: $font-size__m;
+  border: $border;
+  border-radius: $border-radius__inputs;
+  background: unset;
+}
+
+.error {
+  color: $error;
+  border-color: $border-error;
+}
+
+select {
+  width: $width__select;
+  padding-right: (($margin__smaller * 2) + $size__select-arrow);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; // remove default arrow
+  background: url("./lib/icons/bottom-arrow.svg") no-repeat 96% 0; // add custom arrow
+  background-size: $size__select-arrow;
+  background-position-x: $select-arrow-position-x;
+  background-position-y: $select-arrow-position-y;
+}
+
+select:disabled,
+input:disabled {
+  color: $gray;
+}
+
+.sorting,
+.sorting-location {
+  margin-right: $margin__big;
+  width: 8.5rem;
+  background-position-x: 6.9rem;
+}
+
+.sorting:last-child,
+.sorting-location:last-child {
+  margin-right: 0;
+}
+
+.sorting-location {
+  width: auto;
+  background-position-x: 3.9rem;
+}
+
+.border {
+  .sorting {
+    margin-top: $margin__smaller;
+    margin-right: 0;
+    margin-left: -$margin__smaller;
+    width: auto;
+    color: $gray;
+    background-position-x: 6.9rem;
+    option {
+      color: $black;
+    }
+  }
+}

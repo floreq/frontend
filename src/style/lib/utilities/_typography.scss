@@ -1,0 +1,114 @@
+html {
+  font-size: $root__font-size;
+  color: $black;
+}
+
+h1 {
+  font-size: $font-size__xxl;
+  margin: 0;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: $font-size__xl;
+  margin: 0;
+}
+
+h3 {
+  font-size: $font-size__l;
+  margin: 0;
+}
+
+h4 {
+  font-weight: normal;
+  font-size: $font-size__m;
+  margin-top: 0;
+  margin-bottom: $margin__big;
+  color: $gray;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.border {
+  h4 {
+    margin-top: 0;
+    margin-bottom: $margin__smaller;
+    color: $gray;
+  }
+}
+
+.border-title,
+.border-title-extended {
+  h4 {
+    margin-top: $margin__smallest;
+    margin-bottom: 0;
+  }
+}
+
+.task-list {
+  font-size: $font-size__m;
+  h4 {
+    margin: 0;
+  }
+}
+
+table {
+  tr {
+    h4 {
+      margin: 0;
+    }
+    .cancel {
+      font-size: $font-size__s;
+      text-align: right;
+    }
+  }
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: $margin__big 0;
+}
+
+label {
+  h4 {
+    margin-top: 0;
+    margin-left: $margin__smaller + $border-width;
+    margin-bottom: $margin__smaller;
+  }
+  span {
+    margin-left: $margin__smaller;
+  }
+}
+
+.non-bold {
+  font-weight: normal;
+}
+
+.error-message {
+  display: block;
+  margin: 0;
+  margin-bottom: -$margin__small;
+  font-size: $font-size__s;
+  color: $error;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.gray {
+  color: $gray;
+}
+
+.more {
+  text-align: center;
+  margin-bottom: 0 !important;
+}
+
+footer {
+  color: $color__footer;
+}
